@@ -1,0 +1,6 @@
+framework module MovingImagesiOS {
+  umbrella header "MovingImagesiOS.h"
+
+  export *
+  module * { export * }
+}

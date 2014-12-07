@@ -44,6 +44,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6E21EF2F1A3353BD003D1A9C /* world.topo.200402.3x21600x10800.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = world.topo.200402.3x21600x10800.jpg; path = ../../../Downloads/world.topo.200402.3x21600x10800.jpg; sourceTree = "<group>"; };
+		6E21EF301A3353BD003D1A9C /* VIIRS_3Feb2012_lrg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = VIIRS_3Feb2012_lrg.jpg; path = ../../../Downloads/VIIRS_3Feb2012_lrg.jpg; sourceTree = "<group>"; };
+		6E21EF331A3355B4003D1A9C /* DSCN0336.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = DSCN0336.JPG; path = ../../../Pictures/aatemp/DSCN0336.JPG; sourceTree = "<group>"; };
 		6E3331E51A0BF1D0002659B2 /* CustomControlDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomControlDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E3331E91A0BF1D0002659B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E3331EA1A0BF1D0002659B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +139,9 @@
 		6E3331FE1A0BF1D0002659B2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6E21EF331A3355B4003D1A9C /* DSCN0336.JPG */,
+				6E21EF2F1A3353BD003D1A9C /* world.topo.200402.3x21600x10800.jpg */,
+				6E21EF301A3353BD003D1A9C /* VIIRS_3Feb2012_lrg.jpg */,
 				6E3331FF1A0BF1D0002659B2 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -379,7 +385,7 @@
 					"/Users/ktam/gitlab/movingimages/DerivedData/MovingImages/Build/Products/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = CustomControlDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -399,7 +405,7 @@
 					"/Users/ktam/gitlab/movingimages/DerivedData/MovingImages/Build/Products/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = CustomControlDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

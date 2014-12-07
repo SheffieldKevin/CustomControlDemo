@@ -51,10 +51,10 @@ extern const MIBaseReference kMIInvalidElementReference;
 /// Remove the object. Returns YES if successful otherwise NO.
 -(BOOL)removeObject:(MIBaseObject *)object;
 
-/// Remove all objects
+/// Remove all base objects
 -(void)removeAllObjects;
 
-/// Remove all objects by type
+/// Remove all base objects by type
 -(void)removeAllObjectsWithType:(NSString *)objectType;
 
 /// Return the object which has the object reference. Returns nil on failure
@@ -68,5 +68,11 @@ extern const MIBaseReference kMIInvalidElementReference;
 
 /// Return the number of objects of a particular type. Returns -1 if unknown type
 -(NSInteger)numberOfObjectsOfType:(NSString *)objectType;
+
+/// Append a dictionary with keys for variable names & their associated values.
+-(void)appendVariables:(NSDictionary *)variables;
+
+/// Drop the last variables dictionary added.
+-(void)dropLastVariablesDictionary;
 
 @end

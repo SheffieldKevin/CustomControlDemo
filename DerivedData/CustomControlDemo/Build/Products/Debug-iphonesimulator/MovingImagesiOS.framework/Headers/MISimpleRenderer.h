@@ -22,7 +22,7 @@
 @property (readonly) BOOL hasDictionary;
 
 /// Assign variables which will be used when interpreting the draw dictionary.
-@property (strong) NSDictionary *variables;
+@property (nonatomic, copy) NSDictionary *variables;
 
 /**
  @property createImage. A block that takes a dictionary, and returns an image.

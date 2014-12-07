@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.DS_Store</key>
+		<data>
+		2/4zdAM2VkcxA4rrr2dsFSOUOfQ=
+		</data>
 		<key>Headers/MIBaseObjectPublicInterface.h</key>
 		<data>
 		I/jgHaKaBRWi2vW9qfl0blOSNlk=
@@ -18,7 +22,7 @@
 		</data>
 		<key>Headers/MIContext.h</key>
 		<data>
-		V4LC0pT6hfC1kf6EmS2JMwN0v+Y=
+		0biTuBcvxugao160vZ40vj2LHaM=
 		</data>
 		<key>Headers/MICoreImageJSONConstants.h</key>
 		<data>
@@ -46,7 +50,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		PPaqhMhY6CarTe4mf6njphXs5bs=
+		B2FojUwdRvxw2urFbBjftHvM4jQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -69,7 +73,7 @@
 		</data>
 		<key>Headers/MIContext.h</key>
 		<data>
-		V4LC0pT6hfC1kf6EmS2JMwN0v+Y=
+		0biTuBcvxugao160vZ40vj2LHaM=
 		</data>
 		<key>Headers/MICoreImageJSONConstants.h</key>
 		<data>

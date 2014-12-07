@@ -29,8 +29,7 @@ extern const MIBaseReference kMIInvalidElementReference;
 */
 @interface MIContext : NSObject
 
-/// Return the number of objects.
-@property (readonly, assign) NSInteger numberOfObjects;
+@property (readonly) BOOL isEmpty;
 
 /**
  @brief If a context is not specified then the default context will be used.
@@ -42,31 +41,10 @@ extern const MIBaseReference kMIInvalidElementReference;
 /// The designated initializer
 -(instancetype)init;
 
-/// Add an object to the context and return its unique object reference.
--(MIBaseReference)addObject:(MIBaseObject *)object;
+/// Append a dictionary with keys for variable names & their associated values.
+-(void)appendVariables:(NSDictionary *)variables;
 
-/// Remove the object with object reference. Return YES for success otherwise NO.
--(BOOL)removeObjectWithReference:(MIBaseReference)objectReference;
-
-/// Remove the object. Returns YES if successful otherwise NO.
--(BOOL)removeObject:(MIBaseObject *)object;
-
-/// Remove all objects
--(void)removeAllObjects;
-
-/// Remove all objects by type
--(void)removeAllObjectsWithType:(NSString *)objectType;
-
-/// Return the object which has the object reference. Returns nil on failure
--(MIBaseObject *)objectWithReference:(MIBaseReference)reference;
-
-/// Return the object which has object type and name. Returns nil on failure
--(MIBaseObject *)objectWithType:(NSString *)type name:(NSString *)name;
-
-/// Return the object which has object type and index. Return nil on failure
--(MIBaseObject *)objectWithType:(NSString *)type index:(NSInteger)index;
-
-/// Return the number of objects of a particular type. Returns -1 if unknown type
--(NSInteger)numberOfObjectsOfType:(NSString *)objectType;
+/// Drop the last variables dictionary added.
+-(void)dropVariablesDictionary:(NSDictionary *)dictToDrop;
 
 @end

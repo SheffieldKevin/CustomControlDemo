@@ -1337,6 +1337,95 @@ extern NSString *const MIJSONPropertyAllowFloatingPointImages;
 extern NSString *const MIJSONPropertyImageImportTypes;
 
 /**
+ @brief The movie file formats that we can import. "movieimporttypes"
+ @discussion Applies to the movieimporter class. Returns a space delimited list
+ of uti file types that list what image formats an movieimporter object can
+ import.
+*/
+extern NSString *const MIJSONPropertyMovieImportTypes;
+
+/**
+ @brief The movie mime types that we can import. "movieimportmimetypes"
+ @discussion Applies to the movieimporter class. Returns a space delimited list
+ of mime types that list what formats an movieimporter object can import.
+*/
+extern NSString *const MIJSONPropertyMovieImportMIMETypes;
+
+/**
+ @brief Used to identify a track by its track id. "trackid"
+ @discussion If you need to identify a track within a movie importer object
+ you can do it by track id. This is also a property that can be requested of a
+ track if for example the track is identified by track index. The track id value
+ is an integer.
+*/
+extern NSString *const MIJSONPropertyMovieTrackID;
+
+/**
+ @brief Used to identify a track by track index. "trackindex"
+ @discussion If you need to identify a track within a movie importer object
+ you can do it by track index. If the media type, or the media characteristic
+ option is also specified then the index is an index into the list of tracks of
+ that type or characteristic, otherwise the index is an index into the list of
+ all tracks.
+*/
+extern NSString *const MIJSONPropertyMovieTrackIndex;
+
+/**
+ @brief The media type of a track. "mediatype".
+ @discussion You can get the media type property of a track whose value will be
+ one of "AVMediaTypeVideo, AVMediaTypeAudio, AVMediaTypeText,
+ AVMediaTypeClosedCaption, AVMediaTypeSubtitle, AVMediaTypeTimecode,
+ AVMediaTypeTimedMetadata, AVMediaTypeMetadata, AVMediaTypeMuxed". You can also
+ get the number of tracks which have a certain media type and access tracks by
+ media type and index.
+*/
+extern NSString *const MIJSONPropertyMovieMediaType;
+
+/**
+ @brief The media characteristics of a track. "mediacharacteristic".
+ @discussion You can get a list of tracks that have a particular
+ media characteristic. A characteristic is not a simple property of a track
+ because a track can have more than one media characteristic.
+ The characteristics are "AVMediaCharacteristicVisual,
+ AVMediaCharacteristicAudible, AVMediaCharacteristicLegible,
+ AVMediaCharacteristicFrameBased". E.g. A video track is both visual & frame
+ based.
+*/
+extern NSString *const MIJSONPropertyMovieMediaCharacteristic;
+
+/**
+ @brief The number of tracks property of the Movie asset. "numberoftracks"
+ @discussion If neither MIJSONPropertyMovieMediaType or 
+ MIJSONPropertyMovieMediaCharacteristic are specified then the number of tracks
+ will return the number of all of the tracks, otherwise return the number of
+ tracks which confrom to the media type or the media characteristic.
+*/
+extern NSString *const MIJSONPropertyMovieNumberOfTracks;
+
+/**
+ @brief Common movie metadata. Returns an array of dictionaries. "commonmetadata"
+ @discussion Each entry in the array is a different metadata entry. Each entry
+ consists of a key, keyspace, a string vaue and optionally a numeric value.
+*/
+extern NSString *const MIJSONPropertyMovieCommonMetadata;
+
+/**
+ @brief The movie metadata. Returns an array of dictionaries. "moviemetadata"
+ @discussion Each entry in the array is a different metadata entry. Each entry
+ consists of a key, keyspace, a string vaue and optionally a numeric value.
+*/
+extern NSString *const MIJSONPropertyMovieMetadata;
+
+/**
+ @brief The different metadata formats metadata can belong to. "metadataformats"
+ @discussion The various bits of metadata belong to various different format
+ groups. If you only want the metadata that belongs to a particular group then
+ specify using this property. The property value is a string. You can also
+ request the list of metadata formats.
+*/
+extern NSString *const MIJSONPropertyMovieMetadataFormats;
+
+/**
  @brief Should an image be taken of a context after drawing to it. "createimage"
  @discussion When a context is drawn to, or has a filter chain render to the
  context this property which takes a BOOL value indicates whether a image
@@ -1345,6 +1434,91 @@ extern NSString *const MIJSONPropertyImageImportTypes;
  the image. Default value is NO/false.
 */
 extern NSString *const MIJSONPropertyCreateImage;
+
+/**
+ @brief A dictionary property that identifies a track in a movie. "receivertrack"
+ @discussion The value for this property is a dictionary. The dictionary contains
+ properties that specify ways to identify a track. If MIJSONPropertyMovieTrackID
+ is specified then the value uniquely specifies the track. If not then a
+ track index is required and if no other dictionary properties are specified then
+ that is an index into the list of all the tracks. Otherwise one of the media type
+ or media characteristic properties can be specified which, in which case the
+ track index will be an index into the list of tracks which conform to the media
+ type or characteristic.
+*/
+extern NSString *const MIJSONPropertyMovieTrack;
+
+/**
+ @brief A property that defines the movie duration. "duration"
+ @discussion The value for the property is a dictionary object that contains
+ properties that represent the denominator and numerator of the duration value.
+ It is a dictionary representation of a CMTime struct.
+*/
+extern NSString *const MIJSONPropertyMovieDuration;
+
+/**
+ @brief A property that defines the track start time in a movie. "starttime"
+ @discussion The value for the property is a dictionary object that contains
+ properties that represent the denominator and numerator of the start time value.
+ It is a dictionary representation of a CMTime struct.
+*/
+// extern NSString *const MIJSONPropertyMovieStartTime;
+
+/**
+ @brief A property that defines whether a track is enabled. "trackenabled"
+ @discussion The value for the property is bool value indicating whether the
+ referred to track is enabled or not.
+*/
+extern NSString *const MIJSONPropertyMovieTrackEnabled;
+
+/**
+ @brief A time range property that specifies a start time & duration "timerange"
+ @discussion Both the start time and duration parts of the time range are
+ represented by CMTime. A CMTime is represented by a dictionary/json object.
+ When requesting a property of a movie's track the value returned will be a 
+ json object.
+*/
+extern NSString *const MIJSONPropertyMovieTimeRange;
+
+/// The ISO 639-2/T language code property as a string. "languagecode"
+extern NSString *const MIJSONPropertyMovieLanguageCode;
+
+/// The BCP-47 language tag property as a string. "languagetag"
+extern NSString *const MIJSONPropertyMovieExtendedLanguageTag;
+
+/// The natural size of a video track. jsonstring "naturalsize"
+extern NSString *const MIJSONPropertyMovieTrackNaturalSize;
+
+/// The affine transform to be applied before rendering. jsonstring "affinetransform"
+extern NSString *const MIJSONPropertyMovieTrackAffineTransform;
+
+/// The preferred volume that an audio track should be played at "preferredvolume"
+extern NSString *const MIJSONPropertyMovieTrackPreferredVolume;
+
+/// The nominal frame rate. Float. "framerate"
+extern NSString *const MIJSONPropertyMovieTrackNominalFrameRate;
+
+/// The minimum frame duration. CMTime dictionary. "minframeduration"
+extern NSString *const MIJSONPropertyMovieTrackMinFrameDuration;
+
+/// Will frames need to be re-ordered to be in order. "requiresframereordering"
+extern NSString *const MIJSONPropertyMovieTrackRequiresFrameReordering;
+
+/**
+ @brief Return a list of the time mappings of segments in a track.
+ @discussion A track contains a list of segments which contain content.
+ Most often there is just one segment which has data for the full time range
+ of the track. The track segment is represented by its mapping, which maps
+ the time in the segment source to track time. "tracksegmentmappings"
+*/
+extern NSString *const MIJSONPropertyMovieTrackSegmentMappings;
+
+
+/// Time range mappings requires a source time range to map from "sourcetimerange"
+extern NSString *const MIJSONPropertyMovieSourceTimeRange;
+
+/// Time range mappings requires a target time range to map to. "targettimerange"
+extern NSString *const MIJSONPropertyMovieTargetTimeRange;
 
 /**
  @brief The different possible bitmap contexts. "bitmappresets"

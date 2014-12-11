@@ -12,7 +12,8 @@ import ImageIO
 import XCTest
 
 class CustomControlDemoTests: XCTestCase {
-    
+    //    let testBundle = NSBundle(forClass: CustomControlDemoTests.self)
+    let movieURL = NSBundle(forClass: CustomControlDemoTests.self).URLForResource("410_clip4", withExtension:"mov")!
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,11 +23,52 @@ class CustomControlDemoTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+
+/*
+    func functionToTestPerformance(#movieAsset:AVURLAsset, index:Int) -> Void {
+        let generator = AVAssetImageGenerator(asset: movieAsset)
+        var actualTime:CMTime = CMTimeMake(0, 600)
+        let image = generator.copyCGImageAtTime(
+            CMTimeMake(index * 600 + 30, 600),
+            actualTime: &actualTime, error: nil)
+        //        println("Test2: width: \(CGImageGetWidth(image))")
     }
+    
+    func testAVAssetImageGeneratorPerformanc2() {
+        let options = [
+            AVURLAssetPreferPreciseDurationAndTimingKey: true,
+            AVURLAssetReferenceRestrictionsKey:
+                AVAssetReferenceRestrictions.RestrictionForbidNone.rawValue
+        ]
+        
+        let asset = AVURLAsset(URL: movieURL, options: options)!
+        self.measureBlock() {
+            for i in 0..<10 {
+                self.functionToTestPerformance(movieAsset: asset, index: i)
+            }
+        }
+    }
+
+    func testAVAssetImageGeneratorPerformance1() {
+        let options = [
+            AVURLAssetPreferPreciseDurationAndTimingKey: true,
+            AVURLAssetReferenceRestrictionsKey:
+                AVAssetReferenceRestrictions.RestrictionForbidNone.rawValue
+        ]
+        
+        let asset = AVURLAsset(URL: movieURL, options: options)!
+        self.measureBlock() {
+            let generator = AVAssetImageGenerator(asset: asset)
+            var actualTime:CMTime = CMTimeMake(0, 600)
+            for i in 0..<10 {
+                let image = generator.copyCGImageAtTime(
+                    CMTimeMake(i * 600 + 30, 600),
+                    actualTime: &actualTime, error: nil)
+                //                println("Test1: width: \(CGImageGetWidth(image))")
+            }
+        }
+    }
+*/
 /*
     func testReadingThumbnailImageFilePerformance() {
         let testBundle = NSBundle(forClass: CustomControlDemoTests.self)

@@ -44,10 +44,8 @@ class CustomControlLayer: CALayer {
         self._doinit()
     }
 
-    override func drawInContext(ctx: CGContext!)
-    {
-        if let theDial = numericDial?
-        {
+    override func drawInContext(ctx: CGContext!) {
+        if let theDial = numericDial? {
             CGContextSaveGState(ctx)
             CGContextTranslateCTM(ctx, 0.0, theDial.bounds.size.height)
             CGContextScaleCTM(ctx, 1.0, -1.0);

@@ -78,8 +78,7 @@ class CustomDial: UIControl {
         return value
     }
 
-    private func setCurrentValueFromLocation(location : CGPoint)
-    {
+    private func setCurrentValueFromLocation(location : CGPoint) {
         if let theValue = self.currentValueFromLocation(location) {
             self.currentValue = theValue
             sendActionsForControlEvents(.ValueChanged)

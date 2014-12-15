@@ -16,6 +16,14 @@
 		6E3332011A0BF1D0002659B2 /* CustomControlDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3332001A0BF1D0002659B2 /* CustomControlDemoTests.swift */; };
 		6E33320F1A0BFBF2002659B2 /* CustomControlLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E33320E1A0BFBF2002659B2 /* CustomControlLayer.swift */; };
 		6E3332111A0BFCF6002659B2 /* CustomDial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3332101A0BFCF6002659B2 /* CustomDial.swift */; };
+		6E6BB8EF1A3EFC410063D219 /* CompareImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BB8EE1A3EFC410063D219 /* CompareImages.swift */; };
+		6E6BB8F11A3EFC900063D219 /* MovingImagesFrameworkiOSSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BB8F01A3EFC900063D219 /* MovingImagesFrameworkiOSSwift.swift */; };
+		6E6BB8F81A3EFD3F0063D219 /* curlycat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6E6BB8F21A3EFD3F0063D219 /* curlycat.jpg */; };
+		6E6BB8F91A3EFD3F0063D219 /* draw_bundleimage1.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E6BB8F31A3EFD3F0063D219 /* draw_bundleimage1.json */; };
+		6E6BB8FA1A3EFD3F0063D219 /* draw_bundleimage2.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E6BB8F41A3EFD3F0063D219 /* draw_bundleimage2.json */; };
+		6E6BB8FB1A3EFD3F0063D219 /* draw_elements.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E6BB8F51A3EFD3F0063D219 /* draw_elements.json */; };
+		6E6BB8FC1A3EFD3F0063D219 /* drawelements_asynchronous.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E6BB8F61A3EFD3F0063D219 /* drawelements_asynchronous.json */; };
+		6E6BB8FD1A3EFD3F0063D219 /* FrameAt5Secs.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E6BB8F71A3EFD3F0063D219 /* FrameAt5Secs.png */; };
 		6EC0A6AA1A0FE776009E3824 /* MovingImagesiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC0A6A91A0FE776009E3824 /* MovingImagesiOS.framework */; };
 		6EC0A6AE1A126B46009E3824 /* drawarc.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EC0A6AD1A126B46009E3824 /* drawarc.json */; };
 		6EE3E4D11A39D3FF00D1EF27 /* 410_clip4.mov in Resources */ = {isa = PBXBuildFile; fileRef = 6E21EF3A1A387277003D1A9C /* 410_clip4.mov */; };
@@ -50,7 +58,6 @@
 
 /* Begin PBXFileReference section */
 		6E21EF2F1A3353BD003D1A9C /* world.topo.200402.3x21600x10800.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = world.topo.200402.3x21600x10800.jpg; path = ../../../Downloads/world.topo.200402.3x21600x10800.jpg; sourceTree = "<group>"; };
-		6E21EF301A3353BD003D1A9C /* VIIRS_3Feb2012_lrg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = VIIRS_3Feb2012_lrg.jpg; path = ../../../Downloads/VIIRS_3Feb2012_lrg.jpg; sourceTree = "<group>"; };
 		6E21EF331A3355B4003D1A9C /* DSCN0336.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = DSCN0336.JPG; path = ../../../Pictures/aatemp/DSCN0336.JPG; sourceTree = "<group>"; };
 		6E21EF3A1A387277003D1A9C /* 410_clip4.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = 410_clip4.mov; path = ../../../gitlab/movingimages/MovieMakerFrameworkTests/410_clip4.mov; sourceTree = "<group>"; };
 		6E3331E51A0BF1D0002659B2 /* CustomControlDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomControlDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +72,14 @@
 		6E3332001A0BF1D0002659B2 /* CustomControlDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomControlDemoTests.swift; sourceTree = "<group>"; };
 		6E33320E1A0BFBF2002659B2 /* CustomControlLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomControlLayer.swift; sourceTree = "<group>"; };
 		6E3332101A0BFCF6002659B2 /* CustomDial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDial.swift; sourceTree = "<group>"; };
+		6E6BB8EE1A3EFC410063D219 /* CompareImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CompareImages.swift; path = ../../../gitlab/movingimages/MovingImagesFrameworkiOSTests/CompareImages.swift; sourceTree = "<group>"; };
+		6E6BB8F01A3EFC900063D219 /* MovingImagesFrameworkiOSSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovingImagesFrameworkiOSSwift.swift; path = ../../../gitlab/movingimages/MovingImagesFrameworkiOSTests/MovingImagesFrameworkiOSSwift.swift; sourceTree = "<group>"; };
+		6E6BB8F21A3EFD3F0063D219 /* curlycat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = curlycat.jpg; path = ../../../gitlab/movingimages/MovieMakerFrameworkTests/curlycat.jpg; sourceTree = "<group>"; };
+		6E6BB8F31A3EFD3F0063D219 /* draw_bundleimage1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = draw_bundleimage1.json; path = ../../../gitlab/movingimages/MovieMakerFrameworkTests/draw_bundleimage1.json; sourceTree = "<group>"; };
+		6E6BB8F41A3EFD3F0063D219 /* draw_bundleimage2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = draw_bundleimage2.json; path = ../../../gitlab/movingimages/MovieMakerFrameworkTests/draw_bundleimage2.json; sourceTree = "<group>"; };
+		6E6BB8F51A3EFD3F0063D219 /* draw_elements.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = draw_elements.json; path = ../../../gitlab/movingimages/MovieMakerFrameworkTests/draw_elements.json; sourceTree = "<group>"; };
+		6E6BB8F61A3EFD3F0063D219 /* drawelements_asynchronous.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = drawelements_asynchronous.json; path = ../../../gitlab/movingimages/MovieMakerFrameworkTests/drawelements_asynchronous.json; sourceTree = "<group>"; };
+		6E6BB8F71A3EFD3F0063D219 /* FrameAt5Secs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FrameAt5Secs.png; path = ../../../gitlab/movingimages/MovieMakerFrameworkTests/FrameAt5Secs.png; sourceTree = "<group>"; };
 		6EC0A6A91A0FE776009E3824 /* MovingImagesiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MovingImagesiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EC0A6AB1A0FE965009E3824 /* CustomControlDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CustomControlDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		6EC0A6AD1A126B46009E3824 /* drawarc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = drawarc.json; sourceTree = "<group>"; };
@@ -144,6 +159,8 @@
 				6EE3E4D41A39D59600D1EF27 /* CustomControlDemoTests-Bridging-Header.h */,
 				6E3332001A0BF1D0002659B2 /* CustomControlDemoTests.swift */,
 				6EE3E4D21A39D43C00D1EF27 /* MovingImagesMovieImporter.swift */,
+				6E6BB8F01A3EFC900063D219 /* MovingImagesFrameworkiOSSwift.swift */,
+				6E6BB8EE1A3EFC410063D219 /* CompareImages.swift */,
 				6E3331FE1A0BF1D0002659B2 /* Supporting Files */,
 			);
 			path = CustomControlDemoTests;
@@ -157,8 +174,13 @@
 				6EE3E4D61A39D70D00D1EF27 /* 410_clip4_metadata.json */,
 				6EE3E4D71A39D70D00D1EF27 /* 410_clip4_videotrack_properties.json */,
 				6E21EF331A3355B4003D1A9C /* DSCN0336.JPG */,
+				6E6BB8F21A3EFD3F0063D219 /* curlycat.jpg */,
+				6E6BB8F31A3EFD3F0063D219 /* draw_bundleimage1.json */,
+				6E6BB8F41A3EFD3F0063D219 /* draw_bundleimage2.json */,
+				6E6BB8F51A3EFD3F0063D219 /* draw_elements.json */,
+				6E6BB8F61A3EFD3F0063D219 /* drawelements_asynchronous.json */,
+				6E6BB8F71A3EFD3F0063D219 /* FrameAt5Secs.png */,
 				6E21EF2F1A3353BD003D1A9C /* world.topo.200402.3x21600x10800.jpg */,
-				6E21EF301A3353BD003D1A9C /* VIIRS_3Feb2012_lrg.jpg */,
 				6E3331FF1A0BF1D0002659B2 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -259,8 +281,14 @@
 			files = (
 				6EE3E4D91A39D70D00D1EF27 /* 410_clip4_metadata.json in Resources */,
 				6EE3E4D81A39D70D00D1EF27 /* 410_clip4_audiotrack_properties.json in Resources */,
+				6E6BB8FA1A3EFD3F0063D219 /* draw_bundleimage2.json in Resources */,
 				6EE3E4D11A39D3FF00D1EF27 /* 410_clip4.mov in Resources */,
+				6E6BB8FB1A3EFD3F0063D219 /* draw_elements.json in Resources */,
+				6E6BB8FC1A3EFD3F0063D219 /* drawelements_asynchronous.json in Resources */,
+				6E6BB8F91A3EFD3F0063D219 /* draw_bundleimage1.json in Resources */,
 				6EE3E4DA1A39D70D00D1EF27 /* 410_clip4_videotrack_properties.json in Resources */,
+				6E6BB8FD1A3EFD3F0063D219 /* FrameAt5Secs.png in Resources */,
+				6E6BB8F81A3EFD3F0063D219 /* curlycat.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +311,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EE3E4D31A39D43C00D1EF27 /* MovingImagesMovieImporter.swift in Sources */,
+				6E6BB8EF1A3EFC410063D219 /* CompareImages.swift in Sources */,
+				6E6BB8F11A3EFC900063D219 /* MovingImagesFrameworkiOSSwift.swift in Sources */,
 				6E3332011A0BF1D0002659B2 /* CustomControlDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

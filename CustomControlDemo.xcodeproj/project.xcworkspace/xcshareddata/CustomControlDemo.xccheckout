@@ -6,24 +6,40 @@
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>B259A200-048B-4ED4-B9AE-BA60BCC66670</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CustomControlDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>AA7748CB2AE6C2606999036975D1549EB99EA9E1</key>
+		<string>https://github.com/SheffieldKevin/CustomControlDemo.git</string>
 		<key>EBC96D3F1D1448142E298CD55003F24ABE7DE6CA</key>
 		<string>https://gitlab.com/ktam/movingimages.git</string>
 	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CustomControlDemo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>AA7748CB2AE6C2606999036975D1549EB99EA9E1</key>
+		<string>../..</string>
 		<key>EBC96D3F1D1448142E298CD55003F24ABE7DE6CA</key>
-		<string>movingimages/</string>
+		<string>../../../../gitlab/movingimages</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://gitlab.com/ktam/movingimages.git</string>
+	<string>https://github.com/SheffieldKevin/CustomControlDemo.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>EBC96D3F1D1448142E298CD55003F24ABE7DE6CA</string>
+	<string>AA7748CB2AE6C2606999036975D1549EB99EA9E1</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AA7748CB2AE6C2606999036975D1549EB99EA9E1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CustomControlDemo</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

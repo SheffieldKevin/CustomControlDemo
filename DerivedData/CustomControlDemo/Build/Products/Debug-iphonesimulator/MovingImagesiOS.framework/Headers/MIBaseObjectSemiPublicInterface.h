@@ -102,7 +102,7 @@
                asyncWithCompletionHandler:(MICommandCompletionHandler)handler;
 
 /// Assign the function that will make the requested image. Not a prop coz swift
--(void)applyCreateImageFunction:(CGImageRef(^)(NSDictionary *))makeImageFunction;
+// -(void)applyCreateImageFunction:(CGImageRef(^)(NSDictionary *))makeImageFunction;
 
 #pragma mark Object methods specific to bitmap, nsgraphicscontext objects
 

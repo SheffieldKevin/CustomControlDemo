@@ -3,6 +3,7 @@
 //  Copyright (c) 2014 Kevin Meaney. All rights reserved.
 
 @import Foundation;
+@import CoreGraphics;
 
 @class MIContext;
 
@@ -50,3 +51,19 @@ NSDictionary *MIMovingImagesHandleCommands(MIContext *context,
                                            NSDictionary *commands,
                                            MICommandCompletionHandler handler);
 
+/**
+ @brief Create a CGImage using object represented by objectDict and image index.
+ @discussion The image index is ignored, if the object that the image is
+ requested from doesn't handle multiple images. The can't be this object
+ is an object that can't be the image source. This will be the
+ owner object meaning you can't get an image from an object your currently
+ drawing to.
+ @param context The context which contains the object to get image from.
+ @param objectDict  A dictionary with info to find the image source object
+ @param imageOptions  An image options dictionary. Contents depends on receiver.
+ @param cantBeThisObject    This object is not available to get the image from
+ */
+CGImageRef MICreateImageFromObjectAndOptions(MIContext *context,
+                                             NSDictionary *objectDict,
+                                             NSDictionary *imageOptions,
+                                             id cantBeThisObject) CF_RETURNS_RETAINED;

@@ -30,7 +30,7 @@
  The block or function should create the image based on the contents of the
  dictionary.
 */
-@property (nonatomic, copy) CGImageRef(^createImage)(NSDictionary *);
+// @property (nonatomic, copy) CGImageRef(^createImage)(NSDictionary *);
 
 /// Instantiate the renderer. Designated initializer.
 -(instancetype)initWithMIContext:(MIContext *)miContext;

@@ -18,7 +18,8 @@ typedef NS_ENUM(NSInteger, MIReplyErrorEnum)
     MIReplyErrorOperationFailed = 248,
     MIReplyErrorUnknownProperty = 247,
     MIReplyErrorInvalidOption = 246,
-    MIReplyErrorMissingProperty = 245
+    MIReplyErrorMissingProperty = 245,
+    MIReplyErrorInvalidProperty = 244
 };
 
 /**
@@ -67,3 +68,7 @@ NSString *MIGetStringFromReplyDictionary(NSDictionary *replyDictionary);
 
 /// Get the array of string/numeric values from the reply dictionary.
 NSArray *MIGetStringArrayFromReplyDictionary(NSDictionary *replyDictionary);
+
+/// Get the dictionary value from the reply dictionary
+NSDictionary *MIGetDictionaryValueFromReplyDictionary(NSDictionary *replyDict);
+

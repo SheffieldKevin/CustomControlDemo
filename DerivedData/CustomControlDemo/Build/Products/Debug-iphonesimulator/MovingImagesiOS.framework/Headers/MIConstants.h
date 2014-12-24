@@ -20,8 +20,12 @@ extern NSString *const MICGBitmapContextKey;
 /// The pdf context base object type. "pdfcontext".
 extern NSString *const MICGPDFContextKey;
 
-/// The movie importer base object type. "movieimporter" (unimplemented).
+/// The movie importer base object type. "movieimporter".
 extern NSString *const MIMovieImporterKey;
+
+/// The movie frame iterator base object type. "movieframeiterator"
+extern NSString *const MIMovieFrameIteratorKey;
+
 
 /// The movie editor base object type. "movieeditor" (unimplemented).
 extern NSString *const MIMovieEditorKey;

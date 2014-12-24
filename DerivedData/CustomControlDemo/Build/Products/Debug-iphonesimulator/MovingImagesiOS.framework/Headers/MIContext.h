@@ -6,7 +6,9 @@
 //  Copyright (c) 2014 Apple Inc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+// #import <Foundation/Foundation.h>
+@import Foundation;
+@import CoreGraphics;
 
 typedef NSInteger MIBaseReference;
 extern const MIBaseReference kMIInvalidElementReference;
@@ -46,5 +48,15 @@ extern const MIBaseReference kMIInvalidElementReference;
 
 /// Drop the last variables dictionary added.
 -(void)dropVariablesDictionary:(NSDictionary *)dictToDrop;
+
+/// Add image with identifier to the the image collection.
+-(BOOL)assignCGImage:(CGImageRef)theImage identifier:(NSString *)identifier;
+
+/// Remove image from the collection with identifier.
+-(BOOL)removeImageWithIdentifier:(NSString *)identifier;
+
+/// Get cg image from image collection with identifier.
+-(CGImageRef)getCGImageWithIdentifier:
+                                (NSString *)identifier CF_RETURNS_NOT_RETAINED;
 
 @end

@@ -728,7 +728,7 @@ extern NSString *const MIJSONKeyStringFontSize;
  key is specified then you should also specify strokecolor, if not then the
  stroke color of the context will be used.
 */
-extern NSString *const MMSJONKeyStringStrokeWidth;
+extern NSString *const MIJSONKeyStringStrokeWidth;
 
 /*
  @brief A shadow specification to use when drawing objects or text. "shadow"
@@ -898,6 +898,19 @@ extern NSString *const MIJSONKeySourceObject;
  { objectreference | (objecttype && objectname) | (objecttype && objectindex ) }
 */
 extern NSString *const MIJSONKeyReceiverObject;
+
+/**
+ @brief The key to a dictionary holding image creation options "imageoptions"
+ @discussion The dictionary will take different keys depending on the object
+ that is creating the image. An image importer optionally takes an "imageindex"
+ property. If "imageindex" isn't provided then 0 is assumed. A movie importer
+ object takes a "frametime" property and also optionally a tracks property.
+ The tracks property value is an array of track identifier dictionaries. If no
+ tracks property then assume we want the image from all video tracks.
+ Relevant properties are MIJSONKeyImageIndex, MIJSONPropertyFrameTime,
+ MIJSONPropertyTracks.
+*/
+extern NSString *const MIJSONKeyImageOptions;
 
 /**
  @brief The key to get a dictionary for obtaining a secondary object. "secondaryobject"
@@ -1261,6 +1274,14 @@ extern NSString *const MIJSONPropertyDictionaryObject;
 extern NSString *const MIJSONPropertyFile;
 
 /**
+ @brief Identifier to access images in the MIContext collection "imageidentifier"
+ @discussion The MIContext contains an image collection. The value for this
+ property key is the identifier used to either, add, get or remove images from
+ the image collection.
+*/
+extern NSString *const MIJSONPropertyImageIdentifier;
+
+/**
  @brief The property key for the option file type. "utifiletype"
  @discussion The property value is the export file type. The values are one from
  a list of values. This list can be obtained from the image importer, or the
@@ -1382,7 +1403,13 @@ extern NSString *const MIJSONPropertyMovieTrackIndex;
 extern NSString *const MIJSONPropertyMovieMediaType;
 
 /**
- @brief The media characteristics of a track. "mediacharacteristic".
+ @brief A space delimited list of all possible media types. "mediatypes"
+ @discussion This is a readonly property of the movie importer class
+*/
+extern NSString *const MIJSONPropertyMovieMediaTypes;
+
+/**
+ @brief The media characteristic of a track. "mediacharacteristic".
  @discussion You can get a list of tracks that have a particular
  media characteristic. A characteristic is not a simple property of a track
  because a track can have more than one media characteristic.
@@ -1392,6 +1419,12 @@ extern NSString *const MIJSONPropertyMovieMediaType;
  based.
 */
 extern NSString *const MIJSONPropertyMovieMediaCharacteristic;
+
+/**
+ @brief A space delimited list of all possible characteristics. "mediacharacteristics"
+ @discussion This is a readonly property of the movie importer class
+*/
+extern NSString *const MIJSONPropertyMovieMediaCharacteristics;
 
 /**
  @brief The number of tracks property of the Movie asset. "numberoftracks"
@@ -1410,7 +1443,7 @@ extern NSString *const MIJSONPropertyMovieNumberOfTracks;
 extern NSString *const MIJSONPropertyMovieCommonMetadata;
 
 /**
- @brief The movie metadata. Returns an array of dictionaries. "moviemetadata"
+ @brief The movie metadata. Returns an array of dictionaries. "metadata"
  @discussion Each entry in the array is a different metadata entry. Each entry
  consists of a key, keyspace, a string vaue and optionally a numeric value.
 */
@@ -1447,6 +1480,9 @@ extern NSString *const MIJSONPropertyCreateImage;
  type or characteristic.
 */
 extern NSString *const MIJSONPropertyMovieTrack;
+
+/// An array of MIJSONPropertyMovieTrack dictionaries.
+extern NSString *const MIJSONPropertyMovieTracks;
 
 /**
  @brief A property that defines the movie duration. "duration"
@@ -1509,16 +1545,40 @@ extern NSString *const MIJSONPropertyMovieTrackRequiresFrameReordering;
  @discussion A track contains a list of segments which contain content.
  Most often there is just one segment which has data for the full time range
  of the track. The track segment is represented by its mapping, which maps
- the time in the segment source to track time. "tracksegmentmappings"
+ the time in the segment source to track time. "tracksegmentmappings"    
+ The dictionary representing the times are dictionaries representing CMTime.
 */
 extern NSString *const MIJSONPropertyMovieTrackSegmentMappings;
-
 
 /// Time range mappings requires a source time range to map from "sourcetimerange"
 extern NSString *const MIJSONPropertyMovieSourceTimeRange;
 
 /// Time range mappings requires a target time range to map to. "targettimerange"
 extern NSString *const MIJSONPropertyMovieTargetTimeRange;
+
+/**
+ @brief The frame time is a dictionary with properties representing a time.
+ @discussion The preferred contents of the dictionary is a collection of 
+ properties that describe a CMTime. Alternately the dictionary can contain a
+ single property MIJSONPropertyMovieTime="time" which is a float value
+ representing the time in the movie in seconds from the beginning of the movie.
+ A CMTime dictionary object which describes the frame time has the following
+ properties:
+ { "flag" : 1, "value" : 2000000, "timescale" : 600, "epoch" : 0 }
+ The actual time is value/timescale in seconds. The epoch value is kind of a
+ overflow indicator that value wasn't large enough. A flag of 1 indicaes that
+ a time value is valid. "frametime"
+*/
+extern NSString *const MIJSONPropertyMovieFrameTime;
+
+/**
+ @brief The movie time, a float value in seconds "time"
+ @discussion When representing times in movies it is better to use CMTime
+ dictionary representations as these shouldn't have rounding errors, however
+ at times these values can be difficult to manipulate in which case the use of
+ a single float value representing movie time in seconds may be appropriate.
+*/
+extern NSString *const MIJSONPropertyMovieTime;
 
 /**
  @brief The different possible bitmap contexts. "bitmappresets"

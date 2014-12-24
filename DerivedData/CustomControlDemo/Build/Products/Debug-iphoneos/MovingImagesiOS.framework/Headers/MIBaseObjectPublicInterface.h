@@ -9,6 +9,8 @@
 @import Foundation;
 
 @class MIContext;
+@protocol MICreateCGImageInterface;
+@protocol MICIRenderDestinationInterface;
 
 #import "MIContext.h" // REMOVE Only needed for macro, remove when finished.
 
@@ -66,6 +68,15 @@ id MIGetObjectFromDictionary(MIContext *context, NSDictionary *objectDict);
  @param type Specifies the type of the class we are looking for.
  @result The requested object or nil if it couldn't be found.
 */
-
 Class MIGetClassForObjectType(NSString *objectType);
+
+/// Find object defined by dict, conforming to protocol MICreateCGImageInterface
+id <MICreateCGImageInterface>
+FindObjectFromDictionaryConformingToCreateCGImageProtocol(MIContext *context,
+                                                          NSDictionary *dict);
+
+/// Find object defined by dict, conforming to  MICIRenderDestinationInterface
+id <MICIRenderDestinationInterface>
+FindObjectFromDictionaryConformingToRenderDestinationProtocol(MIContext *context,
+                                                              NSDictionary *dict);
 

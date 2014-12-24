@@ -22,7 +22,7 @@
 		<key>AA7748CB2AE6C2606999036975D1549EB99EA9E1</key>
 		<string>../..</string>
 		<key>EBC96D3F1D1448142E298CD55003F24ABE7DE6CA</key>
-		<string>../../../../gitlab/movingimages</string>
+		<string>../../../gitlab/movingimages</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/SheffieldKevin/CustomControlDemo.git</string>

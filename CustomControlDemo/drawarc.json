@@ -90,8 +90,9 @@
     },
     {
       "elementtype": "drawbasicstring",
-      "stringtext": "Baskerville",
-      "postscriptfontname": "Baskerville",
+      "stringtext": "0.45",
+      "textsubstitution" : "controltext",
+      "userinterfacefont" : "kCTFontUIFontSystem",
       "fontsize": 24.0,
       "textalignment": "kCTTextAlignmentCenter",
       "fillcolor": {

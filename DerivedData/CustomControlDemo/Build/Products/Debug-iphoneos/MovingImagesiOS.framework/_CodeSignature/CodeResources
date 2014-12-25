@@ -10,11 +10,11 @@
 		</data>
 		<key>Headers/MIBaseObjectPublicInterface.h</key>
 		<data>
-		j6Y+JLp2WOxN4U/uqDYY905tEaw=
+		uNYdd9THQ2CR5yxtQMnFNJRxkbM=
 		</data>
 		<key>Headers/MIBaseObjectSemiPublicInterface.h</key>
 		<data>
-		Gc5TBc83SDPDzSjVk3PyB/Bqy98=
+		To6yle2NDBExIwW4g4uzYhPRe6c=
 		</data>
 		<key>Headers/MIConstants.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/MIContext.h</key>
 		<data>
-		ik07VVfnNEiDLhJuHHlpBYh3K1k=
+		470divOom7nUWDmEwos5fbAbzag=
 		</data>
 		<key>Headers/MICoreImageJSONConstants.h</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>Headers/MIHandleCommands.h</key>
 		<data>
-		Yxzz3w8DzRCWyiiO/WeGfFyGni0=
+		B/phKHulowjhrMjr1CUmZnPiZ04=
 		</data>
 		<key>Headers/MIJSONConstants.h</key>
 		<data>
-		5iuzlDN5CPpWbMQCyC0k3FimGSw=
+		nWsP8pvi0NMAaAVqlT3LB9DYzfQ=
 		</data>
 		<key>Headers/MIReplyDictionary.h</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Headers/MISimpleRenderer.h</key>
 		<data>
-		4EtqUsg0Pv6iOrfnji/2gDStqXQ=
+		C9pWE3/yrU8ovEbTR+g/tIdqwZw=
 		</data>
 		<key>Headers/MovingImagesiOS.h</key>
 		<data>
@@ -61,11 +61,11 @@
 	<dict>
 		<key>Headers/MIBaseObjectPublicInterface.h</key>
 		<data>
-		j6Y+JLp2WOxN4U/uqDYY905tEaw=
+		uNYdd9THQ2CR5yxtQMnFNJRxkbM=
 		</data>
 		<key>Headers/MIBaseObjectSemiPublicInterface.h</key>
 		<data>
-		Gc5TBc83SDPDzSjVk3PyB/Bqy98=
+		To6yle2NDBExIwW4g4uzYhPRe6c=
 		</data>
 		<key>Headers/MIConstants.h</key>
 		<data>
@@ -73,7 +73,7 @@
 		</data>
 		<key>Headers/MIContext.h</key>
 		<data>
-		ik07VVfnNEiDLhJuHHlpBYh3K1k=
+		470divOom7nUWDmEwos5fbAbzag=
 		</data>
 		<key>Headers/MICoreImageJSONConstants.h</key>
 		<data>
@@ -81,11 +81,11 @@
 		</data>
 		<key>Headers/MIHandleCommands.h</key>
 		<data>
-		Yxzz3w8DzRCWyiiO/WeGfFyGni0=
+		B/phKHulowjhrMjr1CUmZnPiZ04=
 		</data>
 		<key>Headers/MIJSONConstants.h</key>
 		<data>
-		5iuzlDN5CPpWbMQCyC0k3FimGSw=
+		nWsP8pvi0NMAaAVqlT3LB9DYzfQ=
 		</data>
 		<key>Headers/MIReplyDictionary.h</key>
 		<data>
@@ -93,7 +93,7 @@
 		</data>
 		<key>Headers/MISimpleRenderer.h</key>
 		<data>
-		4EtqUsg0Pv6iOrfnji/2gDStqXQ=
+		C9pWE3/yrU8ovEbTR+g/tIdqwZw=
 		</data>
 		<key>Headers/MovingImagesiOS.h</key>
 		<data>

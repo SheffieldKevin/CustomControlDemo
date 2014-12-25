@@ -39,7 +39,7 @@
  @param context: The context to perform the command in.
  @result A reply dictionary. Containing information about whether the
  sub command completed successfully, and a return value.
- */
+*/
 +(NSDictionary *)handleClassCommand:(NSDictionary *)inputDict
                           inContext:(MIContext *)context;
 
@@ -51,7 +51,7 @@
  @param inputDict Containing information necessary to perform the sub command.
  @result A reply dictionary. Containing information about whether the
  sub command completed successfully, and a return value.
- */
+*/
 -(NSDictionary *)handleObjectCommand:(NSDictionary *)inputDict;
 
 @end

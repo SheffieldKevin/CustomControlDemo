@@ -92,6 +92,11 @@
 */
 -(NSDictionary *)handleSetPropertyCommand:(NSDictionary *)commandDict;
 
+#pragma mark Object method handled by objects that conform to MICreateImageInterface.
+
+/// Assigns an image to the image collection in MIContext.
+-(NSDictionary *)handleAssignImageToCollectionCommand:(NSDictionary *)commandDict;
+
 #pragma mark Object methods specific to bitmap, pdf, nsgraphicscontext objects
 
 /// Draw synchronously the element into the context.
@@ -102,7 +107,7 @@
                asyncWithCompletionHandler:(MICommandCompletionHandler)handler;
 
 /// Assign the function that will make the requested image. Not a prop coz swift
--(void)applyCreateImageFunction:(CGImageRef(^)(NSDictionary *))makeImageFunction;
+// -(void)applyCreateImageFunction:(CGImageRef(^)(NSDictionary *))makeImageFunction;
 
 #pragma mark Object methods specific to bitmap, nsgraphicscontext objects
 
@@ -159,5 +164,8 @@
 // handleRenderFilterChain.
 //-(NSDictionary *)handleRenderFilterChainCommand:(NSDictionary *)commandDict
 //                    asyncWithCompletionHandler:(CommandCompletionHandler)handler;
+
+
+-(NSDictionary *)handleProcessFrames:(NSDictionary *)commandDict;
 
 @end

@@ -730,6 +730,15 @@ extern NSString *const MIJSONKeyStringFontSize;
 */
 extern NSString *const MIJSONKeyStringStrokeWidth;
 
+/**
+ @brief Text substitution key for text in a variables dict. "textsubstitution"
+ @discussion If this key is not specified or that the variables dictionary
+ does not contain an entry for this key then the text specified by "stringtext"
+ will be used. If text using this key is obtained then the string drawn is
+ this text.
+*/
+extern NSString *const MIJSONKeyStringTextSubstitution;
+
 /*
  @brief A shadow specification to use when drawing objects or text. "shadow"
  @discussion The shadow specification requires a specified shadow color which
@@ -1116,6 +1125,30 @@ extern NSString *const MIJSONValueCalculateGraphicSizeOfTextCommand;
 extern NSString *const MIJSONValueRenderFilterChainCommand;
 
 /**
+ @brief The assign an image to the context collection  "assignimagetocollection"
+ @discussion This is the command value for the MIJSONKeyCommand key. This
+ command is handled by a bitmap context, pdf context, nsgraphic context (window),
+ image importer, and movie importer objects.
+*/
+extern NSString *const MIJSONValueAssignImageToCollectionCommand;
+
+/**
+ @brief Remove image with identifier from collection. "removeimagefromcollection"
+ @discussion This command is handled by the framework, no class or object takes
+ this command. This command requires the MIJSONPropertyImageIdentifier property.
+*/
+extern NSString *const MIJSONValueRemoveImageFromCollectionCommand;
+
+/**
+ @brief The process frames value for the MIJSONKeyCommand key. "processframes"
+ @discussion The process frames command is handled by a "movieimporter" object 
+ only. The process frames command takes a list of times in the movie when you
+ want a movie frame and a list of command lists, one command list per frame
+ time and it is the commands in the command list that will process the image.
+*/
+extern NSString *const MIJSONValueProcessFrames;
+
+/**
  @brief The addimage value for the MIJSONKeyCommand key. "addimage".
  @discussion The addimage command is handled by an "imageexporter" type object
  only. The addimage command takes a required option of "secondaryobject" and
@@ -1134,16 +1167,17 @@ extern NSString *const MIJSONValueExportCommand;
 
 /**
  @brief The draw element value for the MIJSONKeyCommand key. "drawelement".
- @discussion The draw element command is handled by a "bitmapcontext" object.
+ @discussion The draw element command is handled by a "bitmapcontext", 
+ "pdfcontext" and "nsgraphiccontext".
  The command takes a dictionary describing how to draw the element.
 */
 extern NSString *const MIJSONValueDrawElementCommand;
 
 /**
- @brief The snapshot command. Handled by a bitmapcontext object. "snapshot"
- @discussion The snapshot command takes an object (bitmapcontext object)
- and an option "snapshotaction" which has one of three values: "takesnapshot",
- "drawsnapshot", "clearsnapshot". 
+ @brief The snapshot command value for key MISJONKeyCommand. "snapshot"
+ @discussion The snapshot command takes an object, a bitmap or a nsgraphic
+ context and an option "snapshotaction" which has one of three values: 
+ "takesnapshot", "drawsnapshot", "clearsnapshot". 
 */
 extern NSString *const MIJSONValueSnapshotCommand;
 
@@ -1579,6 +1613,36 @@ extern NSString *const MIJSONPropertyMovieFrameTime;
  a single float value representing movie time in seconds may be appropriate.
 */
 extern NSString *const MIJSONPropertyMovieTime;
+
+/**
+ @brief The instructions for processing movie frames. "processinstructions"
+ @discussion The value is an array of dictionaries. Each dictionary contains
+ a "commands" property, a "frametime" property and a "imageidentifier"
+ property.
+*/
+extern NSString *const MIJSONPropertyMovieProcessInstructions;
+
+/**
+ @brief The instructions to be run before processing the image frames. "preprocess"
+ @discussion The value is an array of command dictionaries of the commands to
+ run before starting processing images. Optional.
+*/
+extern NSString *const MIJSONPropertyMoviePreProcess;
+
+/**
+ @brief The instructions to be run after processing the image frames. "postprocess"
+ @discussion The value is an array of command dictionaries of the commands to
+ run after the processing of image is finished. Optiontal.
+*/
+extern NSString *const MIJSONPropertyMoviePostProcess;
+
+/**
+ @brief Should commands be run in a local context. "localcontext"
+ @discussion When processing movie frames, should the processing happen within
+ a context specific to the processing of the frames or in the containing
+ context. The value for the property is of type bool & default value is NO/false.
+*/
+extern NSString *const MIJSONPropertyMovieLocalContext;
 
 /**
  @brief The different possible bitmap contexts. "bitmappresets"

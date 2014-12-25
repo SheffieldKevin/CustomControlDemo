@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6E07A5BB1A13CDC9008D7A0C /* MovingImagesiOS.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6EC0A6A91A0FE776009E3824 /* MovingImagesiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E13F79A1A4C327100A515B3 /* MovingImagesiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC0A6A91A0FE776009E3824 /* MovingImagesiOS.framework */; };
 		6E3331EB1A0BF1D0002659B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3331EA1A0BF1D0002659B2 /* AppDelegate.swift */; };
 		6E3331ED1A0BF1D0002659B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3331EC1A0BF1D0002659B2 /* ViewController.swift */; };
 		6E3331F01A0BF1D0002659B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E3331EE1A0BF1D0002659B2 /* Main.storyboard */; };
@@ -103,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E13F79A1A4C327100A515B3 /* MovingImagesiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

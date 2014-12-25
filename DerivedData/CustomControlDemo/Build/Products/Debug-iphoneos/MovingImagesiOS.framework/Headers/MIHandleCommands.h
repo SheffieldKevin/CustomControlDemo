@@ -64,6 +64,18 @@ NSDictionary *MIMovingImagesHandleCommands(MIContext *context,
  @param cantBeThisObject    This object is not available to get the image from
  */
 CGImageRef MICreateImageFromObjectAndOptions(MIContext *context,
-                                             NSDictionary *objectDict,
-                                             NSDictionary *imageOptions,
-                                             id cantBeThisObject) CF_RETURNS_RETAINED;
+                                         NSDictionary *objectDict,
+                                         NSDictionary *imageOptions,
+                                         id cantBeThisObject) CF_RETURNS_RETAINED;
+
+/**
+ @brief Create a CGImage based on the properties of the image dictionary.
+ @discussion MICreateImageFromDictionary will first see if it can obtain an
+ image from the image collection in the context, but if the image identifier key
+ is not specified then MICreateImageFromDictionary will determine the object to
+ create the image and get the image options from the image dictionary and then
+ call MICreateImageFromObjectAndOptions to create the image.
+*/
+CGImageRef MICreateImageFromDictionary(MIContext *context,
+                                       NSDictionary *imageDict,
+                                       id cantBeThisObject) CF_RETURNS_RETAINED;

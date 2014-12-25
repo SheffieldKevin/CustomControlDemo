@@ -50,7 +50,9 @@ class CustomControlLayer: CALayer {
             CGContextTranslateCTM(ctx, 0.0, theDial.bounds.size.height)
             CGContextScaleCTM(ctx, 1.0, -1.0);
             let currentVal:NSNumber = NSNumber(double: Double(theDial.currentValue))
-            let variables:NSDictionary = ["controlValue":currentVal]
+            let controlText = NSString(format: "%1.3f", currentVal.floatValue)
+            let variables:NSDictionary = ["controlValue":currentVal,
+                                          "controltext":controlText]
             self.simpleRenderer.variables = variables
             self.simpleRenderer.drawIntoCGContext(ctx, isFlipped: false)
             CGContextRestoreGState(ctx)

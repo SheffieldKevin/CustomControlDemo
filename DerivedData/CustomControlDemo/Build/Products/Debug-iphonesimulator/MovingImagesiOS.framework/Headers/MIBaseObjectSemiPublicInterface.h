@@ -92,6 +92,11 @@
 */
 -(NSDictionary *)handleSetPropertyCommand:(NSDictionary *)commandDict;
 
+#pragma mark Object method handled by objects that conform to MICreateImageInterface.
+
+/// Assigns an image to the image collection in MIContext.
+-(NSDictionary *)handleAssignImageToCollectionCommand:(NSDictionary *)commandDict;
+
 #pragma mark Object methods specific to bitmap, pdf, nsgraphicscontext objects
 
 /// Draw synchronously the element into the context.
@@ -159,5 +164,8 @@
 // handleRenderFilterChain.
 //-(NSDictionary *)handleRenderFilterChainCommand:(NSDictionary *)commandDict
 //                    asyncWithCompletionHandler:(CommandCompletionHandler)handler;
+
+
+-(NSDictionary *)handleProcessFrames:(NSDictionary *)commandDict;
 
 @end

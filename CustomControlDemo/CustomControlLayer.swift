@@ -12,36 +12,16 @@ import MovingImagesiOS
 class CustomControlLayer: CALayer {
     weak var numericDial: CustomDial?
     let simpleRenderer: MISimpleRenderer
-    let jsonResource: String?
 
-    private func _doinit() {
-        if let theJsonFile = self.jsonResource {
-            let mainBundle = NSBundle.mainBundle();
-            let jsonURL = mainBundle.URLForResource(theJsonFile,
-                withExtension: "json")
-            let inStream = NSInputStream(URL: jsonURL!)!
-            inStream.open()
-            let container:AnyObject = NSJSONSerialization.JSONObjectWithStream(
-                        inStream,
-                options:NSJSONReadingOptions(rawValue:0),
-                  error:nil)!
-            let drawDict:NSDictionary = container as NSDictionary
-            self.simpleRenderer.setDrawDictionary(drawDict)
-        }
-    }
-    
-    init(jsonResource:String) {
-        self.simpleRenderer = MISimpleRenderer(MIContext: MIContext())
-        self.jsonResource = jsonResource
+    init(drawDictionary: [String : AnyObject]) {
+        self.simpleRenderer = MISimpleRenderer(drawDictionary: drawDictionary)
         super.init()
-        self._doinit()
     }
-    
+
     required init(coder aDecoder: NSCoder) {
-        self.simpleRenderer = MISimpleRenderer(MIContext: MIContext())
-        self.jsonResource = aDecoder.decodeObjectForKey("json_resource") as String?
+        let theDict = aDecoder.decodeObjectForKey("draw_dictionary") as NSDictionary
+        self.simpleRenderer = MISimpleRenderer(drawDictionary: theDict)
         super.init(coder: aDecoder)
-        self._doinit()
     }
 
     override func drawInContext(ctx: CGContext!) {

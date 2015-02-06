@@ -1,10 +1,8 @@
-//
 //  CustomDial.swift
 //  CustomControlDemo
 //
 //  Created by Kevin Meaney on 06/11/2014.
 //  Copyright (c) 2014 Kevin Meaney. All rights reserved.
-//
 
 import UIKit
 
@@ -13,22 +11,46 @@ class CustomDial: UIControl {
     let minimumValue = CGFloat(0.0)
     let maximimValue = CGFloat(1.0)
 
-    let customControlLayer = CustomControlLayer(jsonResource: "drawarc")
+    let customControlLayer: CustomControlLayer
+    
+    class func dictionaryFromJSONResource(jsonResource: String) ->
+                                                        [String : AnyObject]? {
+        let mainBundle = NSBundle.mainBundle();
+        let jsonURL = mainBundle.URLForResource(jsonResource,
+            withExtension: "json")
+        let inStream = NSInputStream(URL: jsonURL!)!
+        inStream.open()
+        let container:AnyObject? = NSJSONSerialization.JSONObjectWithStream(
+                                        inStream,
+                                options:NSJSONReadingOptions(rawValue:0),
+                                  error:nil)
+        if let theContainer: AnyObject = container {
+            return container as? [String : AnyObject]
+        }
+        else
+        {
+            return Optional.None
+        }
+    }
 
     override init(frame: CGRect) {
+        let drawDict = CustomDial.dictionaryFromJSONResource("drawarc")!
+        self.customControlLayer = CustomControlLayer(drawDictionary: drawDict)
         super.init(frame: frame)
         self.customControlLayer.numericDial = self
         self.customControlLayer.contentsScale = UIScreen.mainScreen().scale
-        layer.addSublayer(customControlLayer)
+        self.layer.addSublayer(customControlLayer)
         
         drawTrack()
     }
     
     required init(coder: NSCoder) {
+        let drawDict = CustomDial.dictionaryFromJSONResource("drawarc")!
+        self.customControlLayer = CustomControlLayer(drawDictionary: drawDict)
         super.init(coder: coder)
         self.customControlLayer.numericDial = self
         self.customControlLayer.contentsScale = UIScreen.mainScreen().scale
-        layer.addSublayer(customControlLayer)
+        self.layer.addSublayer(customControlLayer)
         
         drawTrack()
     }
@@ -41,17 +63,17 @@ class CustomDial: UIControl {
         CATransaction.commit()
     }
 
-    override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent) -> Bool
+    override func beginTrackingWithTouch(touch: UITouch,
+                               withEvent event: UIEvent) -> Bool
     {
         setCurrentValueFromLocation(touch.locationInView(self))
-        
         return true
     }
     
-    override func continueTrackingWithTouch(touch: UITouch, withEvent event: UIEvent) -> Bool
+    override func continueTrackingWithTouch(touch: UITouch,
+                                  withEvent event: UIEvent) -> Bool
     {
         setCurrentValueFromLocation(touch.locationInView(self))
-        
         return true
     }
     

@@ -13,14 +13,14 @@ import XCTest
 
 class CustomControlDemoTests: XCTestCase {
     //    let testBundle = NSBundle(forClass: CustomControlDemoTests.self)
-    let movieURL = NSBundle(forClass: CustomControlDemoTests.self).URLForResource("410_clip4", withExtension:"mov")!
+    let movieURL = NSBundle(
+        forClass: CustomControlDemoTests.self).URLForResource("410_clip4",
+            withExtension:"mov")!
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
 

@@ -165,7 +165,23 @@
 //-(NSDictionary *)handleRenderFilterChainCommand:(NSDictionary *)commandDict
 //                    asyncWithCompletionHandler:(CommandCompletionHandler)handler;
 
+#pragma mark Instance methods specific to the movie importer class.
 
+/// Process frames of a movie.
 -(NSDictionary *)handleProcessFrames:(NSDictionary *)commandDict;
+
+#pragma mark Instance methods specific to the video frames writer class.
+
+/// Add an input for a movie frame write that takes samples.
+-(NSDictionary *)handleAddInputToMovieFrameWriter:(NSDictionary *)commandDict;
+
+/// When your finished adding video frame samples, call this to save the movie.
+-(NSDictionary *)handleFinishWritingFrames:(NSDictionary *)commandDict;
+
+/// If you don't want the movie file to be written send this message.
+-(NSDictionary *)handleCancelWritingFrames:(NSDictionary *)commandDict;
+
+/// Add an image sample to the movie frame writer to be added
+-(NSDictionary *)handleAddImageSampleToWriter:(NSDictionary *)commandDict;
 
 @end

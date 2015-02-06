@@ -4,21 +4,21 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>.DS_Store</key>
-		<data>
-		2/4zdAM2VkcxA4rrr2dsFSOUOfQ=
-		</data>
 		<key>Headers/MIBaseObjectPublicInterface.h</key>
 		<data>
 		uNYdd9THQ2CR5yxtQMnFNJRxkbM=
 		</data>
 		<key>Headers/MIBaseObjectSemiPublicInterface.h</key>
 		<data>
-		To6yle2NDBExIwW4g4uzYhPRe6c=
+		OHOI4KkdCGCh/EJa4TorQGUTTSg=
+		</data>
+		<key>Headers/MICGImage.h</key>
+		<data>
+		Z7tx9rLNiKmU4BohcC7yMSzuTl4=
 		</data>
 		<key>Headers/MIConstants.h</key>
 		<data>
-		ozq3Tmr/e0wZeW3CeGEDbE6rZXk=
+		dCbXovXv5IKh1sTQwTfCgy5r9ro=
 		</data>
 		<key>Headers/MIContext.h</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>Headers/MIHandleCommands.h</key>
 		<data>
-		B/phKHulowjhrMjr1CUmZnPiZ04=
+		ftQE+gnUSCuvDnjRk1hTwpPlVjE=
 		</data>
 		<key>Headers/MIJSONConstants.h</key>
 		<data>
-		nWsP8pvi0NMAaAVqlT3LB9DYzfQ=
+		a3uT14hJzi4ouq2XHRiodRNDa9s=
 		</data>
 		<key>Headers/MIReplyDictionary.h</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Headers/MovingImagesiOS.h</key>
 		<data>
-		25hVfrZxnsuyILCM9gu0RNTqpxM=
+		yRsuebh26REKg/2xKwqMbScEVDM=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -65,11 +65,15 @@
 		</data>
 		<key>Headers/MIBaseObjectSemiPublicInterface.h</key>
 		<data>
-		To6yle2NDBExIwW4g4uzYhPRe6c=
+		OHOI4KkdCGCh/EJa4TorQGUTTSg=
+		</data>
+		<key>Headers/MICGImage.h</key>
+		<data>
+		Z7tx9rLNiKmU4BohcC7yMSzuTl4=
 		</data>
 		<key>Headers/MIConstants.h</key>
 		<data>
-		ozq3Tmr/e0wZeW3CeGEDbE6rZXk=
+		dCbXovXv5IKh1sTQwTfCgy5r9ro=
 		</data>
 		<key>Headers/MIContext.h</key>
 		<data>
@@ -81,11 +85,11 @@
 		</data>
 		<key>Headers/MIHandleCommands.h</key>
 		<data>
-		B/phKHulowjhrMjr1CUmZnPiZ04=
+		ftQE+gnUSCuvDnjRk1hTwpPlVjE=
 		</data>
 		<key>Headers/MIJSONConstants.h</key>
 		<data>
-		nWsP8pvi0NMAaAVqlT3LB9DYzfQ=
+		a3uT14hJzi4ouq2XHRiodRNDa9s=
 		</data>
 		<key>Headers/MIReplyDictionary.h</key>
 		<data>
@@ -97,7 +101,7 @@
 		</data>
 		<key>Headers/MovingImagesiOS.h</key>
 		<data>
-		25hVfrZxnsuyILCM9gu0RNTqpxM=
+		yRsuebh26REKg/2xKwqMbScEVDM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>

@@ -37,49 +37,52 @@ extern NSString *const MIJSONKeyElementType;
 /**
  @brief The element type is an array of elements. "arrayofelements"
  @discussion Made of: { array of elements, [fillcolor], [strokecolor],
- [linewidth], [blendmode] [transformation] [affinetransform] }
+ [linewidth], [blendmode], [transformation], [affinetransform],
+ [shadow], [clip] }
 */
 extern NSString *const MIJSONValueArrayOfElements;
 
 /**
  @brief The element type fill rectangle. "fillrectangle"
- @discussion Made of: { rect, [fillcolor], [blendmode], [transformation]
- [affinetransform] }
+ @discussion Made of: { rect, [fillcolor], [blendmode], [transformation],
+ [affinetransform], [shadow], [clip] }
 */
 extern NSString *const MIJSONValueRectangleFillElement;
 
 /**
  @brief The element type stroke rectangle. "strokerectangle"
  @discussion Made of: { rect, [strokecolor], [linewidth], [blendmode],
- [transformation] [affinetransform] }
+ [transformation], [affinetransform], [shadow], [clip] }
 */
 extern NSString *const MIJSONValueRectangleStrokeElement;
 
 /**
  @brief The element type fill oval. "filloval"
  @discussion Made of: { rect, [fillcolor], [blendmode], [transformation]
- [affinetransform] }
+ [affinetransform], [shadow], [clip] }
 */
 extern NSString *const MIJSONValueOvalFillElement;
 
 /**
  @brief The element type stroke oval. "strokeoval"
  @discussion Made of: { rect, [strokecolor], [linewidth], [blendmode],
- [transformation] [affinetransform] }
+ [transformation], [affinetransform], [shadow], [clip] }
  */
 extern NSString *const MIJSONValueOvalStrokeElement;
 
 /**
  @brief The element type line. "drawline"
  @discussion Made of: { startpoint, endpoint, [strokecolor], [linewidth],
- [linecap], [blendmode], [transformation] [affinetransform] }
+ [linecap], [blendmode], [transformation] [affinetransform],
+ [shadow], [clip] }
 */
 extern NSString *const MIJSONValueLineElement;
 
 /**
  @brief The element type array of lines. "drawlines"
  @discussion Made of an array of points. { points, [strokecolor], [linewidth],
- [linecap], [blendmode], [transformation] [affinetransform] }
+ [linecap], [blendmode], [transformation], [affinetransform],
+ [shadow], [clip] }
  Each pair of points represents a startpoint and an endpoint, so the number of
  points must be even.
 */
@@ -87,29 +90,29 @@ extern NSString *const MIJSONValueLineElements;
 
 /**
  @brief The element type fill round cornered rectangle. "fillroundedrectangle"
- @discussion Made of: { rect, radius|radiuses, [strokecolor], [blendmode],
- [transformation] [affinetransform] }
+ @discussion Made of: { rect, radius|radiuses, [fillcolor], [blendmode],
+ [transformation], [affinetransform], [shadow], [clip]  }
 */
 extern NSString *const MIJSONValueRoundedRectangleFillElement;
 
 /**
  @brief The element type stroke round cornered rectangle. "strokeroundedrectangle"
  @discussion Made of: { rect, radius|radiuses, [strokecolor], [linewidth],
- [blendmode], [transformation] [affinetransform] }
+ [blendmode], [transformation], [affinetransform], [shadow], [clip] }
 */
 extern NSString *const MIJSONValueRoundedRectangleStrokeElement;
 
 /**
  @brief The element type fill the path. "fillpath"
  @discussion Made of: { arrayofpathelements, [fillcolor], [blendmode],
- [transformation] [affinetransform] }
+ [transformation], [affinetransform], [shadow], [clipping] }
 */
 extern NSString *const MIJSONValuePathFillElement;
 
 /**
  @brief The element type stroke the path. "strokepath"
  @discussion Made of: { arrayofpathelements, [linewidth], [linecap], [linejoin],
- [miter], [strokecolor], [blendmode], [transformation] [affinetransform] }
+ [miter], [strokecolor], [blendmode], [transformation], [affinetransform] }
 */
 extern NSString *const MIJSONValuePathStrokeElement;
 
@@ -168,6 +171,13 @@ extern NSString *const MIJSONValueRadialGradientFill;
  image is wanted.
 */
 extern NSString *const MIJSONValueDrawImage;
+
+/**
+ @brief The fill a path element and add an inner shadow. "fillinnershadowpath"
+ @discussion Made of: { arrayofpathelements, [fillcolor], [blendmode],
+ [transformation], [affinetransform], [shadow] }
+*/
+extern NSString *const MIJSONValuePathFillInnerShadowElement;
 
 #pragma mark The Path related element type values.
 
@@ -744,8 +754,17 @@ extern NSString *const MIJSONKeyStringTextSubstitution;
  @discussion The shadow specification requires a specified shadow color which
  is specified using the fillcolor key, a blur value and an offset which
  specifies where the shadow is drawn relative to the object to be drawn.
+ Made of: { fillcolor, offset, blur }
 */
 extern NSString *const MIJSONKeyShadow;
+
+/*
+ @brief A shadow specification to use when drawing. "innershadow"
+ @discussion The shadow specification used when applying an inner shadow.
+ Has the same properties as shadow.
+ Made of: { fillcolor, offset, blur }
+*/
+extern NSString *const MIJSONKeyInnerShadow;
 
 /*
  @brief A clipping specification used to clip the drawing to.
@@ -921,13 +940,6 @@ extern NSString *const MIJSONKeyReceiverObject;
 */
 extern NSString *const MIJSONKeyImageOptions;
 
-/**
- @brief The key to get a dictionary for obtaining a secondary object. "secondaryobject"
- @discussion The dictionary can contain the same properties as the keys
- in the source object dictionary. 
-*/
-extern NSString *const MIJSONKeySecondaryObject;
-
 /// A base object reference to refer to a base object. "objectreference". { int }.
 extern NSString *const MIJSONKeyObjectReference;
 
@@ -1061,7 +1073,7 @@ extern NSString *const MIJSONKeyInputData;
  @brief A list of clean up commands. Optional. "cleanupcommands"
  @discussion 
 */
-extern NSString *const MIJSONKeyCleanUpCommands;
+extern NSString *const MIJSONKeyCleanupCommands;
 
 /// The string value of yes. "YES"
 extern NSString *const MIJSONValueYes;
@@ -1146,7 +1158,48 @@ extern NSString *const MIJSONValueRemoveImageFromCollectionCommand;
  want a movie frame and a list of command lists, one command list per frame
  time and it is the commands in the command list that will process the image.
 */
-extern NSString *const MIJSONValueProcessFrames;
+extern NSString *const MIJSONValueProcessFramesCommand;
+
+/**
+ @brief The create track value for the MIJSONKeyCommand key. "createtrack"
+ @discussion The create track command is handled by a "movieeditor" object only.
+ The command requires the mediatype key whose value specifies the media type
+ of the track to create. The command can also optionally take a track id which
+ will be assigned to the track and used later on to identify the track. If the
+ track id is already taken then the command will fail. On success the command
+ returns the track id of the created track.
+*/
+extern NSString *const MIJSONValueCreateTrackCommand;
+
+/**
+ @brief Add an input to the writer. Effectively creates a track."addinputtowriter"
+ @discussion At present only one input can be added to an asset writer. This can
+ only be a video writer to which you will be able to add image frame samples to
+ for writing.
+*/
+extern NSString *const MIJSONValueAddInputToMovieFrameWriterCommand;
+
+/**
+ @brief Complete the exporting of samples as a movie. "finishwritingframes"
+ @discussion After you have added all your image frame samples to an input (track)
+ you can then call finish writing frames which will complete the saving of the
+ movie file.
+*/
+extern NSString *const MIJSONValueFinishWritingFramesCommand;
+
+/**
+ @brief Cancel the exporting of samples as a movie. "cancelwritingframes"
+ @discussion If you need to stop the writing of the movie frames and delete
+ the generated movie file then cancel writing frames will do that.
+*/
+extern NSString *const MIJSONValueCancelWritingFramesCommand;
+
+/**
+ @brief After creating a writer input you can add samples "addimagesampletowriter"
+ @discussion This takes a source from where to get the image, and then adds the
+ image to the input of the video frames writer.
+*/
+extern NSString *const MIJSONValueAddImageSampleToWriterCommand;
 
 /**
  @brief The addimage value for the MIJSONKeyCommand key. "addimage".
@@ -1288,7 +1341,7 @@ extern NSString *const MIJSONPropertyJSONFilePath;
  string, a json file or a plist file.  In that situation this property value is
  used as a property key with the value being the path to the file which is the
  drawing data.
- */
+*/
 extern NSString *const MIJSONPropertyPropertyFilePath;
 
 /**
@@ -1296,7 +1349,7 @@ extern NSString *const MIJSONPropertyPropertyFilePath;
  @discussion Send or receive a dictionary representation of some data. The
  alternatives are a jsonstring string, a json file or a property list file.
  The dictionary object will be the most efficient of them.
- */
+*/
 extern NSString *const MIJSONPropertyDictionaryObject;
 
 /**
@@ -1304,8 +1357,16 @@ extern NSString *const MIJSONPropertyDictionaryObject;
  @discussion The property value is a path to a file on disk. The path should NOT
  be relative to any location unless you specify the tilde character "~" in the
  path which will refer to the current users home directory.
- */
+*/
 extern NSString *const MIJSONPropertyFile;
+
+/**
+ @brief Path substitution key for a path in a variables dict. "pathsubstituion"
+ @discussion When importing a media file or exporting a file the path to the file
+ can be obtained from the variables dictionary. The value for this property is
+ the key into the variables dictionary containing the path.
+*/
+extern NSString *const MIJSONPropertyPathSubstitution;
 
 /**
  @brief Identifier to access images in the MIContext collection "imageidentifier"
@@ -1391,6 +1452,7 @@ extern NSString *const MIJSONPropertyAllowFloatingPointImages;
 */
 extern NSString *const MIJSONPropertyImageImportTypes;
 
+#pragma mark Movie Properties, keys and values.
 /**
  @brief The movie file formats that we can import. "movieimporttypes"
  @discussion Applies to the movieimporter class. Returns a space delimited list
@@ -1398,6 +1460,9 @@ extern NSString *const MIJSONPropertyImageImportTypes;
  import.
 */
 extern NSString *const MIJSONPropertyMovieImportTypes;
+
+/// The available movie file format export types property. "movieexporttypes"
+extern NSString *const MIJSONPropertyMovieExportTypes;
 
 /**
  @brief The movie mime types that we can import. "movieimportmimetypes"
@@ -1519,7 +1584,7 @@ extern NSString *const MIJSONPropertyMovieTrack;
 extern NSString *const MIJSONPropertyMovieTracks;
 
 /**
- @brief A property that defines the movie duration. "duration"
+ @brief A readonly property that defines the movie duration. "duration"
  @discussion The value for the property is a dictionary object that contains
  properties that represent the denominator and numerator of the duration value.
  It is a dictionary representation of a CMTime struct.
@@ -1527,12 +1592,12 @@ extern NSString *const MIJSONPropertyMovieTracks;
 extern NSString *const MIJSONPropertyMovieDuration;
 
 /**
- @brief A property that defines the track start time in a movie. "starttime"
- @discussion The value for the property is a dictionary object that contains
- properties that represent the denominator and numerator of the start time value.
- It is a dictionary representation of a CMTime struct.
+ @brief A readonly property that defines the current sample time. "currenttime"
+ @discussion If movie frame samples have been requested, then this readonly
+ property will return the time of the last successful sample frame request,
+ otherwise a time of zero will be returned.
 */
-// extern NSString *const MIJSONPropertyMovieStartTime;
+extern NSString *const MIJSONPropertyMovieCurrentTime;
 
 /**
  @brief A property that defines whether a track is enabled. "trackenabled"
@@ -1571,6 +1636,9 @@ extern NSString *const MIJSONPropertyMovieTrackNominalFrameRate;
 /// The minimum frame duration. CMTime dictionary. "minframeduration"
 extern NSString *const MIJSONPropertyMovieTrackMinFrameDuration;
 
+/// The frame duration. Used for adding frames to a writer input. "frameduration"
+extern NSString *const MIJSONPropertyMovieFrameDuration;
+
 /// Will frames need to be re-ordered to be in order. "requiresframereordering"
 extern NSString *const MIJSONPropertyMovieTrackRequiresFrameReordering;
 
@@ -1591,13 +1659,17 @@ extern NSString *const MIJSONPropertyMovieSourceTimeRange;
 extern NSString *const MIJSONPropertyMovieTargetTimeRange;
 
 /**
- @brief The frame time is a dictionary with properties representing a time.
- @discussion The preferred contents of the dictionary is a collection of 
+ @brief The frame time is a time representation property. "frametime"
+ @discussion The property value is either a string or a dictionary. If the
+ value is a string then the only valid value is "movienextsample" otherwise the
+ preferred contents of the dictionary is a collection of
  properties that describe a CMTime. Alternately the dictionary can contain a
- single property MIJSONPropertyMovieTime="time" which is a float value
- representing the time in the movie in seconds from the beginning of the movie.
+ single property MIJSONPropertyMovieTime="time" which is a float or string value
+ representing the time in seconds from the beginning of the movie.
+ 
  A CMTime dictionary object which describes the frame time has the following
  properties:
+ 
  { "flag" : 1, "value" : 2000000, "timescale" : 600, "epoch" : 0 }
  The actual time is value/timescale in seconds. The epoch value is kind of a
  overflow indicator that value wasn't large enough. A flag of 1 indicaes that
@@ -1606,11 +1678,34 @@ extern NSString *const MIJSONPropertyMovieTargetTimeRange;
 extern NSString *const MIJSONPropertyMovieFrameTime;
 
 /**
- @brief The movie time, a float value in seconds "time"
+ @brief Value for this property is a key to the variables dictionary
+ "lastaccessedframedurationkey"
+ @discussion The process frames command of the movie importer uses the value
+ for this property if it exists as a key to the variables dictionary where it
+ will store the frame duration of the last movie frame accessed. The movie
+ video frames writer can access this value when it is adding frames to the
+ writer. The value in the variables dictionary should a CMTime dictionary rep.
+*/
+extern NSString *const MIJSONPropertyMovieLastAccessedFrameDurationKey;
+
+/**
+ @brief Request a movie frame at next sample time value. "movienextsample"
+ @discussion When requesting movie frames you can either specify the time in
+ the movie when you want a movie frame or you can specify you want the next
+ frame. Setting the value for MIJSONPropertyMovieFrameTime to
+ MovieNextSampleTime specifies that we want the next movie frame not a frame at
+ a specific time.
+*/
+extern NSString *const MIJSONValueMovieNextSample;
+
+/**
+ @brief The movie time, value is an equation or a float value in seconds "time"
  @discussion When representing times in movies it is better to use CMTime
  dictionary representations as these shouldn't have rounding errors, however
  at times these values can be difficult to manipulate in which case the use of
- a single float value representing movie time in seconds may be appropriate.
+ a single float value representing movie time in seconds can be used.
+ If the value is an equation then the evaluation of the equation will produce
+ a float value which is time in seconds.
 */
 extern NSString *const MIJSONPropertyMovieTime;
 
@@ -1643,6 +1738,84 @@ extern NSString *const MIJSONPropertyMoviePostProcess;
  context. The value for the property is of type bool & default value is NO/false.
 */
 extern NSString *const MIJSONPropertyMovieLocalContext;
+
+/**
+ @brief Video value for property MIJSONPropertyMovieMediaType. "vide"
+ @discussion The media type value for a video track. You can use when creating
+ a video track in the movie editor or when asking for a list of video tracks
+ from a movie importer or movie editor. Same as AVMediaTypeVideo.
+*/
+extern NSString *const MIJSONValueMovieMediaTypeVideo;
+
+/**
+ @brief Audio value for property MIJSONPropertyMovieMediaType. "soun"
+ @discussion The media type value for a audio track. You can use when creating
+ an audio track in the movie editor or when asking for a list of audio tracks
+ from a movie importer or a movie editor. Same as AVMediaTypeVideo.
+*/
+extern NSString *const MIJSONValueMovieMediaTypeAudio;
+
+/**
+ @brief Presets used as video settings input AVAssetWriterInput. "preset"
+ @discussion When writing movie files there are multiple settings that can
+ be set for the AVAssetWriterInput to configure how the video should be
+ written. Each preset defines properties that go together and can be used as
+ video settings for the AVAssetWriterInput. MIJSONPropertyMovieVideoWriterPreset
+ or MIJSONPropertyMovieVideoWriterSettings needs to specified when adding an input 
+ to a movie frame writer. If neither preset or settings is defined then
+ assume passthrough settings required. Value is a string.
+*/
+extern NSString *const MIJSONPropertyMovieVideoWriterPreset;
+
+/**
+ @brief List of presets property for creating a video input writer. "presets"
+ @discussion This is a readonly property of the "videoframeswriter" class.
+ The return value for this property is a string list with a space delimiter.
+ Each entry in the list is a video writer preset.
+*/
+extern NSString *const MIJSONPropertyMovieVideoWriterPresets;
+
+/**
+ @brief The video settings properties key. "videosettings"
+ @discussion This is a readonly property and returns video settings generated
+ from the preset, plus size and optional settings AVVideoCleanApertureKey and
+ AVVideoScalingModeKey. My github
+ project https://github.com/SheffieldKevin/attributesforpreset will help you
+ work out the string keys and their values. If both preset and settings
+ properties are defined the settings property will override.
+*/
+extern NSString *const MIJSONPropertyMovieVideoWriterSettings;
+
+/**
+ @brief Readonly property of a video frame writer object. "canwriteframes"
+ @discussion If a writer input has not yet been added to the video frame
+ writer or writing has finished then this property will return true when
+ requested. Otherwise false.
+*/
+extern NSString *const MIJSONPropertyMovieVideoWriterCanWriteFrames;
+
+/// Readonly prop. Status of video writer. See AVAssetWriter.h. "videowriterstatus"
+extern NSString *const MIJSONPropertyMovieVideoWriterStatus;
+
+/// Video writer preset to be used for uncompressed output. "uncompressedpreset"
+// extern NSString *const MIJSONValueMovieVideoWriterPresetUncompressed;
+
+/// Video writer preset uses h264 codec for HD videos. "h264preset_hd"
+extern NSString *const MIJSONValueMovieVideoWriterPresetH264_HD;
+
+/// Video writer preset uses h264 codec for SD videos. "h264preset_sd"
+extern NSString *const MIJSONValueMovieVideoWriterPresetH264_SD;
+
+/// Video writer preset which uses jpeg for compressing data. "jpegpreset"
+extern NSString *const MIJSONValueMovieVideoWriterPresetJPEG;
+
+/// Video writer preset which uses the pro res 4444 codec. "prores444preset"
+extern NSString *const MIJSONValueMovieVideoWriterPresetProRes4444;
+
+/// Video writer preset which uses the pro res 422 codec. "prores422preset"
+extern NSString *const MIJSONValueMovieVideoWriterPresetProRes422;
+
+#pragma mark Other bits and bobs.
 
 /**
  @brief The different possible bitmap contexts. "bitmappresets"

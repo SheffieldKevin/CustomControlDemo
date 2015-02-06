@@ -24,11 +24,13 @@ extern NSString *const MICGPDFContextKey;
 extern NSString *const MIMovieImporterKey;
 
 /// The movie frame iterator base object type. "movieframeiterator"
-extern NSString *const MIMovieFrameIteratorKey;
-
+// extern NSString *const MIMovieFrameIteratorKey;
 
 /// The movie editor base object type. "movieeditor" (unimplemented).
 extern NSString *const MIMovieEditorKey;
+
+/// The movie video frames writer base object type. "videoframeswriter"
+extern NSString *const MIMovieVideoFramesWriterKey;
 
 /// UIGraphicsContext wrapper base object. "uigraphicscontext" (unimplemented)
 extern NSString *const MIUIGraphicContext;
@@ -82,10 +84,22 @@ extern NSString *const MIAlphaPreMulLastRGB32bpc128bppFloat;
 extern NSString *const MICMYK8bpc32bppInteger;
 
 /// CMYK. 16 bpc. 64 bpp. Integer. "CMYK16bpcInt" CMYK
-extern NSString *const MICMYK16bpc64bppInteger; // CMYK
+extern NSString *const MICMYK16bpc64bppInteger;
 
 /// CMYK. 32 bpc. 128 bpp. Integer. "CMYK32bpcFloat" CMYK
-extern NSString *const MICMYK32bpc128bppFloat; // CMYK.
+extern NSString *const MICMYK32bpc128bppFloat;
+
+/// BGRA. Alpha. 8bpc, 32bpp. Integer. "AlphaPreMulBGRA8bpcInt" BGRA
+extern NSString *const MIAlphaPreMulBGRA8bpc32bppInteger; //BGRA
+
+/**
+ @brief The platform default bitmap context.
+ @discussion On iOS the preferred bitmap context is BGRA 8bpc whilst on OSX
+ the preferred bitmap context ARGB 8bpc. On OSX This maps to 
+ MIAlphaPreMulFirstRGB8bpc32bppInteger whilst on iOS this maps to
+ MIAlphaPreMulBGRA8bpc32bppInteger.
+*/
+extern NSString *const MIPlatformDefaultBitmapContext;
 
 /**
  @brief An error message key.

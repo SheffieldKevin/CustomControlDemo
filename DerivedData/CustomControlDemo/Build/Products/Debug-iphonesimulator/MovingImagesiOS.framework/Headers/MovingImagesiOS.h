@@ -17,6 +17,7 @@ FOUNDATION_EXPORT const unsigned char MovingImagesFrameworkiOSVersionString[];
 #import <MovingImagesiOS/MIHandleCommands.h>
 #import <MovingImagesiOS/MIBaseObjectPublicInterface.h>
 #import <MovingImagesiOS/MIBaseObjectSemiPublicInterface.h>
+#import <MovingImagesiOS/MICGImage.h>
 #import <MovingImagesiOS/MIConstants.h>
 #import <MovingImagesiOS/MICoreImageJSONConstants.h>
 #import <MovingImagesiOS/MIJSONConstants.h>

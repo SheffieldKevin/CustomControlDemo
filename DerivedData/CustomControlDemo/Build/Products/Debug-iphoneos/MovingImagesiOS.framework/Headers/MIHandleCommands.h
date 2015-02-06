@@ -6,6 +6,7 @@
 @import CoreGraphics;
 
 @class MIContext;
+@class MICGImage;
 
 /**
  @brief Command completion handler block definition. success is async op succeed.
@@ -14,7 +15,7 @@
  parameter reflects whether the asynchronous command completed successfully or
  not.
 */
-typedef void (^MICommandCompletionHandler)(BOOL success);
+typedef void (^MICommandCompletionHandler)(NSDictionary *replyDict);
 
 
 MIContext *MICreateContext();
@@ -41,7 +42,7 @@ NSDictionary *MIMovingImagesHandleCommand(MIContext *context,
  @param commands A dictionary with option properties & command list property.
  @param context The context within which the commands should be handled. If nil
  then commands will be performed within the default context.
- @param handler The completion handler, can be nil.
+ @param handler The completion handler, to be run on main queue. can be nil.
  @result A dictionary. If the commands are run synchronously then dictionary
  returns whether the commands successfully completed, and contains optional
  results. If the commands are run asychronously then the dictionary will return
@@ -52,30 +53,31 @@ NSDictionary *MIMovingImagesHandleCommands(MIContext *context,
                                            MICommandCompletionHandler handler);
 
 /**
- @brief Create a CGImage using object represented by objectDict and image index.
- @discussion The image index is ignored, if the object that the image is
- requested from doesn't handle multiple images. The can't be this object
- is an object that can't be the image source. This will be the
- owner object meaning you can't get an image from an object your currently
- drawing to.
+ @brief Generate a MICGImage using object represented by objectDict and options.
+ @discussion The contents of the option dictionary should change depending on
+ the object described in objectDict. A bitmap context takes no options whereas
+ a movie importer object requires the frame time to be specified, while an image
+ importer object takes an optional image index. If none is supplied then an index
+ of 0 is assumed.
  @param context The context which contains the object to get image from.
  @param objectDict  A dictionary with info to find the image source object
  @param imageOptions  An image options dictionary. Contents depends on receiver.
  @param cantBeThisObject    This object is not available to get the image from
- */
-CGImageRef MICreateImageFromObjectAndOptions(MIContext *context,
+ @result a MICGImage wrapping a CGImageRef and returns nil on failure.
+*/
+MICGImage *MICGImageFromObjectAndOptions(MIContext *context,
                                          NSDictionary *objectDict,
                                          NSDictionary *imageOptions,
-                                         id cantBeThisObject) CF_RETURNS_RETAINED;
+                                         id cantBeThisObject);
 
 /**
- @brief Create a CGImage based on the properties of the image dictionary.
- @discussion MICreateImageFromDictionary will first see if it can obtain an
+ @brief Generate a MICGImage based on the properties of the image dictionary.
+ @discussion MICGImageFromDictionary will first see if it can obtain an
  image from the image collection in the context, but if the image identifier key
- is not specified then MICreateImageFromDictionary will determine the object to
+ is not specified then MICGImageFromDictionary will determine the object to
  create the image and get the image options from the image dictionary and then
- call MICreateImageFromObjectAndOptions to create the image.
+ call MICGImageFromObjectAndOptions to create the image.
 */
-CGImageRef MICreateImageFromDictionary(MIContext *context,
-                                       NSDictionary *imageDict,
-                                       id cantBeThisObject) CF_RETURNS_RETAINED;
+MICGImage *MICGImageFromDictionary(MIContext *context,
+                                   NSDictionary *imageDict,
+                                   id cantBeThisObject);

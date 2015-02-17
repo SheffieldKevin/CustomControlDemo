@@ -8,6 +8,9 @@
 @class MIContext;
 @class MICGImage;
 
+/// Prepare Cocoa Lumberjack for logging messages.
+void MIInitializeCocoaLumberjack();
+
 /**
  @brief Command completion handler block definition. success is async op succeed.
  @discussion For the handle...Command asynchronous methods a completion handler
@@ -17,7 +20,10 @@
 */
 typedef void (^MICommandCompletionHandler)(NSDictionary *replyDict);
 
-
+/**
+ @brief Create a MIContext within which base objects can be created.
+ @discussion Also manages variables and the image collection.
+*/
 MIContext *MICreateContext();
 
 /**

@@ -4,14 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/MIBaseObjectPublicInterface.h</key>
-		<data>
-		uNYdd9THQ2CR5yxtQMnFNJRxkbM=
-		</data>
-		<key>Headers/MIBaseObjectSemiPublicInterface.h</key>
-		<data>
-		OHOI4KkdCGCh/EJa4TorQGUTTSg=
-		</data>
 		<key>Headers/MICGImage.h</key>
 		<data>
 		Z7tx9rLNiKmU4BohcC7yMSzuTl4=
@@ -30,11 +22,15 @@
 		</data>
 		<key>Headers/MIHandleCommands.h</key>
 		<data>
-		ftQE+gnUSCuvDnjRk1hTwpPlVjE=
+		8WTKeEryTujI/OJ39uAtROOQ5nE=
 		</data>
 		<key>Headers/MIJSONConstants.h</key>
 		<data>
-		a3uT14hJzi4ouq2XHRiodRNDa9s=
+		gJ7CwsjBKf3D9tS9HDnJojhkuls=
+		</data>
+		<key>Headers/MIRenderer.h</key>
+		<data>
+		qhQX5x/EUabN5jlWEttsL6E7OTM=
 		</data>
 		<key>Headers/MIReplyDictionary.h</key>
 		<data>
@@ -42,11 +38,11 @@
 		</data>
 		<key>Headers/MISimpleRenderer.h</key>
 		<data>
-		C9pWE3/yrU8ovEbTR+g/tIdqwZw=
+		8ankS7mQE0oj16R7REHNf/5RJnE=
 		</data>
 		<key>Headers/MovingImagesiOS.h</key>
 		<data>
-		yRsuebh26REKg/2xKwqMbScEVDM=
+		UJrjSQvpYuUHPngY7bskFeMAZk4=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -59,14 +55,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/MIBaseObjectPublicInterface.h</key>
-		<data>
-		uNYdd9THQ2CR5yxtQMnFNJRxkbM=
-		</data>
-		<key>Headers/MIBaseObjectSemiPublicInterface.h</key>
-		<data>
-		OHOI4KkdCGCh/EJa4TorQGUTTSg=
-		</data>
 		<key>Headers/MICGImage.h</key>
 		<data>
 		Z7tx9rLNiKmU4BohcC7yMSzuTl4=
@@ -85,11 +73,15 @@
 		</data>
 		<key>Headers/MIHandleCommands.h</key>
 		<data>
-		ftQE+gnUSCuvDnjRk1hTwpPlVjE=
+		8WTKeEryTujI/OJ39uAtROOQ5nE=
 		</data>
 		<key>Headers/MIJSONConstants.h</key>
 		<data>
-		a3uT14hJzi4ouq2XHRiodRNDa9s=
+		gJ7CwsjBKf3D9tS9HDnJojhkuls=
+		</data>
+		<key>Headers/MIRenderer.h</key>
+		<data>
+		qhQX5x/EUabN5jlWEttsL6E7OTM=
 		</data>
 		<key>Headers/MIReplyDictionary.h</key>
 		<data>
@@ -97,11 +89,11 @@
 		</data>
 		<key>Headers/MISimpleRenderer.h</key>
 		<data>
-		C9pWE3/yrU8ovEbTR+g/tIdqwZw=
+		8ankS7mQE0oj16R7REHNf/5RJnE=
 		</data>
 		<key>Headers/MovingImagesiOS.h</key>
 		<data>
-		yRsuebh26REKg/2xKwqMbScEVDM=
+		UJrjSQvpYuUHPngY7bskFeMAZk4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>

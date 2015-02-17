@@ -16,29 +16,19 @@
 
 @interface MISimpleRenderer : NSObject
 
-@property (readonly, strong) MIContext *miContext;
-
-/// Do we have a draw dictionary that contains the drawing instructions.
-@property (readonly) BOOL hasDictionary;
-
 /// Assign variables which will be used when interpreting the draw dictionary.
 @property (nonatomic, copy) NSDictionary *variables;
 
-/**
- @property createImage. A block that takes a dictionary, and returns an image.
- @discussion Assign a create image block or swift function to this property.
- The block or function should create the image based on the contents of the
- dictionary.
-*/
-// @property (nonatomic, copy) CGImageRef(^createImage)(NSDictionary *);
-
 /// Instantiate the renderer. Designated initializer.
--(instancetype)initWithMIContext:(MIContext *)miContext;
+-(instancetype)initWithDrawDictionary:(NSDictionary *)drawDict;
 
-/// Assign the draw dictionary.
--(void)setDrawDictionary:(NSDictionary *)drawDict;
+/// Draw into the context. Assumes already oriented to bottom left is 0,0.
+-(void)drawIntoCGContext:(CGContextRef)context;
 
-/// Using the draw instructions in the draw dictionary draw into the context.
--(void)drawIntoCGContext:(CGContextRef)context isFlipped:(BOOL)flipped;
+/// Assign an image to the image collection with identifier.
+-(void)assignImage:(CGImageRef)image withIdentifier:(NSString *)identifier;
+
+/// Remove image from image collection with identifier.
+-(void)removeImageWithIdentifier:(NSString *)identifer;
 
 @end

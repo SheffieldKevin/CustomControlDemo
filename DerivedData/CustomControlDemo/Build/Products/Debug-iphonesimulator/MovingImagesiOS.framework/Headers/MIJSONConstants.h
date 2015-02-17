@@ -370,6 +370,13 @@ extern NSString *const MIJSONKeyLineCap;
 extern NSString *const MIJSONKeyLineJoin;
 
 /**
+ @brief The graphic context alpha value: "contextalpha". float [0.0 - 1.0]
+ @discussion The transparency option to apply to the graphic context before 
+ drawing.
+*/
+extern NSString *const MIJSONKeyContextAlpha;
+
+/**
  @brief Gradient drawing options key: "gradientoptions". Array of strings
  @discussion If this dictionary entry doesn't exist then it is assumed that
  the drawing of the gradient does not extend beyond the start and end circles.
@@ -1969,7 +1976,7 @@ extern NSString *const MIJSONPropertyBorderlessWindow;
 extern NSString *const MIJSONPropertyFilterCategory;
 
 /**
- @brief Attributes of a image filter readonly property. "imagefilterattributes"
+ @brief Attributes of a image filter readonly property. "filterattributes"
  @discussion Every core image filter has a collection of attributes that are
  needed for setting up the filter to work as desired. The property value returned
  for this property key is a description of the filter attributes. Min/Max values,

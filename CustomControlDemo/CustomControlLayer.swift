@@ -1,41 +1,41 @@
-//
 //  CustomControlLayer.swift
 //  CustomControlDemo
 //
-//  Created by Kevin Meaney on 06/11/2014.
-//  Copyright (c) 2014 Kevin Meaney. All rights reserved.
-//
+//  Copyright (c) 2015 Zukini Ltd.
 
 import UIKit
 import MovingImagesiOS
 
 class CustomControlLayer: CALayer {
     weak var numericDial: CustomDial?
-    let simpleRenderer: MISimpleRenderer
-
+    let simpleRenderer: MISimpleRenderer = MISimpleRenderer()
+    let drawDict: [String:AnyObject]!
+    
     init(drawDictionary: [String : AnyObject]) {
-        self.simpleRenderer = MISimpleRenderer(drawDictionary: drawDictionary)
+        self.drawDict = drawDictionary
         super.init()
     }
-
+    
     required init(coder aDecoder: NSCoder) {
-        let dict = aDecoder.decodeObjectForKey("draw_dictionary") as! [String:AnyObject]
-        self.simpleRenderer = MISimpleRenderer(drawDictionary: dict)
+        self.drawDict = aDecoder.decodeObjectForKey("draw_dictionary") as!
+            [String : AnyObject]
         super.init(coder: aDecoder)
     }
-
+    
     override func drawInContext(ctx: CGContext!) {
         if let theDial = numericDial {
             CGContextSaveGState(ctx)
             CGContextTranslateCTM(ctx, 0.0, theDial.bounds.size.height)
             CGContextScaleCTM(ctx, 1.0, -1.0);
             let currentVal:NSNumber = NSNumber(
-                                        double: Double(theDial.currentValue))
+                double: Double(theDial.currentValue))
             let controlText = NSString(format: "%1.3f", currentVal.floatValue)
-            let variables:[String:AnyObject] = ["controlValue":currentVal,
-                                          "controltext":controlText]
+            let variables = [
+                "controlValue" : currentVal,
+                "controltext" : controlText
+            ]
             self.simpleRenderer.variables = variables
-            self.simpleRenderer.drawIntoCGContext(ctx)
+            self.simpleRenderer.drawDictionary(self.drawDict, intoCGContext: ctx)
             CGContextRestoreGState(ctx)
         }
     }

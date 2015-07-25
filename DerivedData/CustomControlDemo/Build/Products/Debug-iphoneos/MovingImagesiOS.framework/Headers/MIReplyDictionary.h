@@ -1,8 +1,7 @@
 //  MIReplyDictionary.h
 //  MovingImages
 //
-//  Created by Kevin Meaney on 30/07/2013.
-//  Copyright (c) 2013 Kevin Meaney. All rights reserved.
+//  Copyright (c) 2015 Zukini Ltd.
 
 @import Foundation;
 
@@ -22,6 +21,8 @@ typedef NS_ENUM(NSInteger, MIReplyErrorEnum)
     MIReplyErrorInvalidProperty = 244
 };
 
+#pragma clang assume_nonnull begin
+
 /**
  @brief Creates a reply dictionary ready to be returned to the launch agent client
  @param replyString The reply value converted into a string if necessary.
@@ -40,7 +41,8 @@ NSDictionary *MIMakeReplyDictionaryWithNumericValue(NSString *replyString,
                                                     NSNumber *numericValue);
 
 /// Assumes no error, so creates a reply dictionary with a dictionary object.
-NSDictionary *MIMakeReplyDictionaryWithDictionaryValue(NSDictionary *dictValue);
+NSDictionary *MIMakeReplyDictionaryWithDictionaryValue(NSDictionary *dictValue,
+                                                       BOOL makeJSONString);
 
 /// Make the reply dictionary taking an array of string results and an error code
 NSDictionary *MIMakeReplyDictionaryWithArray(NSArray *replyList,
@@ -51,7 +53,8 @@ NSString *MIGetReplyValuesFromDictionary(NSDictionary *replyDictionary,
                                          MIReplyErrorEnum *returnVal);
 
 /// Get the numeric result value of the command
-NSNumber *MIGetNumericReplyValueFromDictionary(NSDictionary *replyDictionary);
+NSNumber * __nullable MIGetNumericReplyValueFromDictionary(
+                                                NSDictionary *replyDictionary);
 
 /// Get the NSNumber error code from reply dictionary.
 NSNumber *MIGetNSNumberErrorCodeFromReplyDictionary(NSDictionary *replyDict);
@@ -67,8 +70,11 @@ MIReplyErrorEnum MIGetErrorCodeFromReplyDictionary(NSDictionary *replyDict);
 NSString *MIGetStringFromReplyDictionary(NSDictionary *replyDictionary);
 
 /// Get the array of string/numeric values from the reply dictionary.
-NSArray *MIGetStringArrayFromReplyDictionary(NSDictionary *replyDictionary);
+NSArray * __nullable MIGetStringArrayFromReplyDictionary(
+                                                NSDictionary *replyDictionary);
 
 /// Get the dictionary value from the reply dictionary
-NSDictionary *MIGetDictionaryValueFromReplyDictionary(NSDictionary *replyDict);
+NSDictionary * __nullable MIGetDictionaryValueFromReplyDictionary(
+                                                NSDictionary *replyDict);
 
+#pragma clang assume_nonnull end

@@ -4,49 +4,53 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.DS_Store</key>
+		<data>
+		QBFk7hpSbMwu173zV6446Qm/qic=
+		</data>
+		<key>Headers/.DS_Store</key>
+		<data>
+		3y++sUAKzaCQmjLBz2v0kvESHgc=
+		</data>
 		<key>Headers/MICGImage.h</key>
 		<data>
-		Z7tx9rLNiKmU4BohcC7yMSzuTl4=
+		UD37tIqZAUrccTMuTyt7atyMNHQ=
 		</data>
 		<key>Headers/MIConstants.h</key>
 		<data>
-		dCbXovXv5IKh1sTQwTfCgy5r9ro=
+		timCe8ZSqAUjzDlXKSQg3A5HMe8=
 		</data>
 		<key>Headers/MIContext.h</key>
 		<data>
-		470divOom7nUWDmEwos5fbAbzag=
+		S+9EJhk9NRLV8jaxP0mYzwtNysI=
 		</data>
 		<key>Headers/MICoreImageJSONConstants.h</key>
 		<data>
-		rFB/zK0YtzyqHPxWHN9atqoXiA4=
+		Iqm4AYxeMpAvlz85ZA5hi/y1/AY=
 		</data>
 		<key>Headers/MIHandleCommands.h</key>
 		<data>
-		8WTKeEryTujI/OJ39uAtROOQ5nE=
+		Zwzh4XDCvSLbCcmC+w1FelC53lU=
 		</data>
 		<key>Headers/MIJSONConstants.h</key>
 		<data>
-		gJ7CwsjBKf3D9tS9HDnJojhkuls=
-		</data>
-		<key>Headers/MIRenderer.h</key>
-		<data>
-		qhQX5x/EUabN5jlWEttsL6E7OTM=
+		ARrz1v5KKjqIfpUh3+dROaAC0xQ=
 		</data>
 		<key>Headers/MIReplyDictionary.h</key>
 		<data>
-		HnuTFy6gZZgJ1Mi0lQLEpGwSTKk=
+		/XkVGxFwT2e3EokaDec77vEJsE0=
 		</data>
 		<key>Headers/MISimpleRenderer.h</key>
 		<data>
-		8ankS7mQE0oj16R7REHNf/5RJnE=
+		jz9F4x5wKV0sPXfeaUWwhvSeqC4=
 		</data>
 		<key>Headers/MovingImagesiOS.h</key>
 		<data>
-		UJrjSQvpYuUHPngY7bskFeMAZk4=
+		ge9hceGQfj8dvqIAdnzDuadgMgw=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		b1rV0c8x/dgzg86wjfsilvbmJlE=
+		92MJ2rmmzzReG6pdFwPNoTKV0I8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -57,43 +61,39 @@
 	<dict>
 		<key>Headers/MICGImage.h</key>
 		<data>
-		Z7tx9rLNiKmU4BohcC7yMSzuTl4=
+		UD37tIqZAUrccTMuTyt7atyMNHQ=
 		</data>
 		<key>Headers/MIConstants.h</key>
 		<data>
-		dCbXovXv5IKh1sTQwTfCgy5r9ro=
+		timCe8ZSqAUjzDlXKSQg3A5HMe8=
 		</data>
 		<key>Headers/MIContext.h</key>
 		<data>
-		470divOom7nUWDmEwos5fbAbzag=
+		S+9EJhk9NRLV8jaxP0mYzwtNysI=
 		</data>
 		<key>Headers/MICoreImageJSONConstants.h</key>
 		<data>
-		rFB/zK0YtzyqHPxWHN9atqoXiA4=
+		Iqm4AYxeMpAvlz85ZA5hi/y1/AY=
 		</data>
 		<key>Headers/MIHandleCommands.h</key>
 		<data>
-		8WTKeEryTujI/OJ39uAtROOQ5nE=
+		Zwzh4XDCvSLbCcmC+w1FelC53lU=
 		</data>
 		<key>Headers/MIJSONConstants.h</key>
 		<data>
-		gJ7CwsjBKf3D9tS9HDnJojhkuls=
-		</data>
-		<key>Headers/MIRenderer.h</key>
-		<data>
-		qhQX5x/EUabN5jlWEttsL6E7OTM=
+		ARrz1v5KKjqIfpUh3+dROaAC0xQ=
 		</data>
 		<key>Headers/MIReplyDictionary.h</key>
 		<data>
-		HnuTFy6gZZgJ1Mi0lQLEpGwSTKk=
+		/XkVGxFwT2e3EokaDec77vEJsE0=
 		</data>
 		<key>Headers/MISimpleRenderer.h</key>
 		<data>
-		8ankS7mQE0oj16R7REHNf/5RJnE=
+		jz9F4x5wKV0sPXfeaUWwhvSeqC4=
 		</data>
 		<key>Headers/MovingImagesiOS.h</key>
 		<data>
-		UJrjSQvpYuUHPngY7bskFeMAZk4=
+		ge9hceGQfj8dvqIAdnzDuadgMgw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>

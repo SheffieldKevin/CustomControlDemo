@@ -1,8 +1,7 @@
 //  MIJSONConstants.h
 //  MovingImages
 //
-//  Created by Kevin Meaney on 10/09/2013.
-//  Copyright (c) 2013-2014 Kevin Meaney. All rights reserved.
+//  Copyright (c) 2015 Zukini Ltd.
 
 // In the comments if a parameter is shown in [] like [blendmode] then it means
 // that is an optional property. If an optional property is not specified then
@@ -15,6 +14,7 @@
 
 @import Foundation;
 
+#pragma clang assume_nonnull begin
 /**
  @name The following are used to define the keys in a JSON object
  @discussion In "Made of" any component in square brackets is an optional
@@ -27,7 +27,7 @@
 #pragma mark - Draw element related property keys and values.
 
 /// The debug name of the element. "elementdebugname". string
-extern NSString *const MIJSONKeyElemenetDebugName;
+extern NSString *const MIJSONKeyElementDebugName;
 
 #pragma mark Element type Key, followed by the element type values.
 
@@ -161,7 +161,8 @@ extern NSString *const MIJSONValueRadialGradientFill;
 
 /**
  @brief The element type draw image. "drawimage"
- @discussion Made of: { sourceobject, destinationrectangle, [imageindex],
+ @discussion Made of: { sourceobject | imageidentifier,
+ destinationrectangle, [imageindex],
  [sourcerectangle], [blendmode], [transformation], [affinetransform] 
  [interpolationquality] }.
  The draw image element type action draws onto the context. The source of the
@@ -665,7 +666,10 @@ extern NSString *const MIJSONValueInterpolationHigh;
  @discussion The colorcolorprofilename specifies the color space. Whether
  the color space is grayscale, rgb, cmyk etc. This defines what color components
  are required. The Alpha color component which is valid in all color spaces is
- a optional value and defaults to 1.0.
+ a optional value and defaults to 1.0. Different color spaces/profiles are: 
+ kCGColorSpaceGenericGray, kCGColorSpaceGenericRGB, kCGColorSpaceGenericCMYK
+ kCGColorSpaceGenericRGBLinear, kCGColorSpaceAdobeRGB1998, kCGColorSpaceSRGB,
+ kCGColorSpaceGenericGrayGamma2_2, devicergb.
  RGB color is made of: { colorcolorprofilename, red, green, blue, [alpha] }
  Grayscale color is made of: { colorcolorprofilename, gray, [alpha] }
  CMYK color is made of: { colorcolorprofilename, cyan, magenta, yellow,
@@ -678,7 +682,10 @@ extern NSString *const MIJSONKeyFillColor;
  @discussion The colorcolorprofilename specifies the color space. Whether
  the color space is grayscale, rgb, cmyk etc. This defines what color components
  are required. The Alpha color component which is valid in all color spaces is
- a optional value and defaults to 1.0.
+ a optional value and defaults to 1.0. Different color spaces/profiles are:
+ kCGColorSpaceGenericGray, kCGColorSpaceGenericRGB, kCGColorSpaceGenericCMYK
+ kCGColorSpaceGenericRGBLinear, kCGColorSpaceAdobeRGB1998, kCGColorSpaceSRGB,
+ kCGColorSpaceGenericGrayGamma2_2, devicergb.
  RGB color is made of: { colorcolorprofilename, red, green, blue, [alpha] }
  Grayscale color is made of: { colorcolorprofilename, gray, [alpha] }
  CMYK color is made of: { colorcolorprofilename, cyan, magenta, yellow,
@@ -718,7 +725,7 @@ extern NSString *const MIJSONKeyCMYKBlack;
  @discussion Suitable values (from CGColorSpace.h are:
  kCGColorSpaceGenericGray, kCGColorSpaceGenericRGB, kCGColorSpaceGenericCMYK
  kCGColorSpaceGenericRGBLinear, kCGColorSpaceAdobeRGB1998, kCGColorSpaceSRGB,
- kCGColorSpaceGenericGrayGamma2_2.
+ kCGColorSpaceGenericGrayGamma2_2, devicergb.
 */
 extern NSString *const MIJSONKeyColorColorProfileName;
 
@@ -1014,7 +1021,7 @@ extern NSString *const MIJSONKeyAsyncCompletionCommands;
 
 /**
  @brief Should the commands after a failed command be executed. "stoponfailure"
- @discussion A property key whose property value is "YES" or "NO". If yes then
+ @discussion A property key whose property value is of type bool. If yes then
  if the running of a command fails then don't run any further commands and
  return. Default value is YES.
 */
@@ -1177,6 +1184,24 @@ extern NSString *const MIJSONValueProcessFramesCommand;
  returns the track id of the created track.
 */
 extern NSString *const MIJSONValueCreateTrackCommand;
+
+/**
+ @brief Add a movie instruction for MIJSONKeyCommand key "addmovieinstruction"
+ @discussion A composition instruction specifies rules for the transition from one
+ video track to another, transform, dissolve, fade, crop etc.
+*/
+extern NSString *const MIJSONValueAddMovieInstruction;
+
+/// Add an empty segment to a track of a movie editor. "insertemptytracksegment"
+extern NSString *const MIJSONValueInsertEmptyTrackSegment;
+
+/**
+ @brief Add a segment to a track of a movie editor. "inserttracksegment"
+ @discussion This command adds at the specified time a track segment to a
+ track of the movie editor. The source track is obtained from a movie importer 
+ object and is identified by a track id.
+*/
+extern NSString *const MIJSONValueInsertTrackSegment;
 
 /**
  @brief Add an input to the writer. Effectively creates a track."addinputtowriter"
@@ -1385,7 +1410,7 @@ extern NSString *const MIJSONPropertyImageIdentifier;
 
 /**
  @brief The property key for the option file type. "utifiletype"
- @discussion The property value is the export file type. The values are one from
+ @discussion The property value is the file type. The values are one from
  a list of values. This list can be obtained from the image importer, or the
  image exporter types depending on whether you are after the list of possible
  image file types that can be imported or exported. To obtain the list you use
@@ -1401,14 +1426,6 @@ extern NSString *const MIJSONPropertyFileType;
  the only thing that handles this property.
 */
 extern NSString *const MIJSONPropertyAvailableExportTypes;
-
-/**
- @brief The export file path. "exportfilepath"
- @discussion A readwrite property of the image export object. Partial paths
- apart from the tilde being expanded to the users home directory are not
- valid. The return value will always be a full path.
-*/
-extern NSString *const MIJSONPropertyExportFilePath;
 
 /**
  @brief Is the image export object in a state it can export. "canexport"
@@ -1575,7 +1592,7 @@ extern NSString *const MIJSONPropertyMovieMetadataFormats;
 extern NSString *const MIJSONPropertyCreateImage;
 
 /**
- @brief A dictionary property that identifies a track in a movie. "receivertrack"
+ @brief A dictionary property that identifies a track in a movie. "track"
  @discussion The value for this property is a dictionary. The dictionary contains
  properties that specify ways to identify a track. If MIJSONPropertyMovieTrackID
  is specified then the value uniquely specifies the track. If not then a
@@ -1586,6 +1603,9 @@ extern NSString *const MIJSONPropertyCreateImage;
  type or characteristic.
 */
 extern NSString *const MIJSONPropertyMovieTrack;
+
+/// The track identifier for a track belonging to the source object. "sourcetrack"
+extern NSString *const MIJSONPropertyMovieSourceTrack;
 
 /// An array of MIJSONPropertyMovieTrack dictionaries.
 extern NSString *const MIJSONPropertyMovieTracks;
@@ -1607,6 +1627,22 @@ extern NSString *const MIJSONPropertyMovieDuration;
 extern NSString *const MIJSONPropertyMovieCurrentTime;
 
 /**
+ @brief The start time of a time range dictionary. "start"
+ @discussion The time range dictionary is made up of a start time and duration
+ dictionaries. This is the start time property of the time range. This property
+ is the same as the key kCMTimeRangeStartKey.
+*/
+extern NSString *const MIJSONPropertyMovieTimeRangeStart;
+
+/**
+ @brief The duration of a time range dictionary. "duration"
+ @discussion The time range dictionary is made up of a start time and a duration
+ dictionary. This is the duration property of the time range. This property is
+ the same as the key kCMTimeRangeDurationKey.
+*/
+extern NSString *const MIJSONPropertyMovieTimeRangeDuration;
+
+/**
  @brief A property that defines whether a track is enabled. "trackenabled"
  @discussion The value for the property is bool value indicating whether the
  referred to track is enabled or not.
@@ -1622,20 +1658,23 @@ extern NSString *const MIJSONPropertyMovieTrackEnabled;
 */
 extern NSString *const MIJSONPropertyMovieTimeRange;
 
+/// The time in the target track when a segment is added. "insertiontime"
+extern NSString *const MIJSONPropertyMovieInsertionTime;
+
 /// The ISO 639-2/T language code property as a string. "languagecode"
 extern NSString *const MIJSONPropertyMovieLanguageCode;
 
 /// The BCP-47 language tag property as a string. "languagetag"
 extern NSString *const MIJSONPropertyMovieExtendedLanguageTag;
 
+/// The movie editor's mutable composition natural size. read/write "naturalsize"s
+extern NSString *const MIJSONPropertyMovieNaturalSize;
+
 /// The natural size of a video track. jsonstring "naturalsize"
 extern NSString *const MIJSONPropertyMovieTrackNaturalSize;
 
-/// The affine transform to be applied before rendering. jsonstring "affinetransform"
-extern NSString *const MIJSONPropertyMovieTrackAffineTransform;
-
 /// The preferred volume that an audio track should be played at "preferredvolume"
-extern NSString *const MIJSONPropertyMovieTrackPreferredVolume;
+extern NSString *const MIJSONKeyMovieTrackPreferredVolume;
 
 /// The nominal frame rate. Float. "framerate"
 extern NSString *const MIJSONPropertyMovieTrackNominalFrameRate;
@@ -1645,6 +1684,45 @@ extern NSString *const MIJSONPropertyMovieTrackMinFrameDuration;
 
 /// The frame duration. Used for adding frames to a writer input. "frameduration"
 extern NSString *const MIJSONPropertyMovieFrameDuration;
+
+/// Dictionary describing movie editor instruction to add. "movieeditorinstruction"
+extern NSString *const MIJSONPropertyMovieEditorInstruction;
+
+/// Movie editor layer instructions. An array of instructions. "layerinstructions"
+extern NSString *const MIJSONPropertyMovieEditorLayerInstructions;
+
+/// Movie editor layer instruction type. "layerinstructiontype"
+extern NSString *const MIJSONKeyMovieEditorLayerInstructionType;
+
+/// Passthru layer instruction. "passthruinstruction"
+extern NSString *const MIJSONValueMovieEditorPassthruInstruction;
+
+/// Transform ramp layer instruction. "transformrampinstruction"
+extern NSString *const MIJSONValueMovieEditorTransformRampInstruction;
+
+/// Opacity ramp layer instruction. "opacityramp"
+extern NSString *const MIJSONValueMovieEditorOpacityRampInstruction;
+
+/// Crop rectangle ramp layer instruction. "cropramp"
+extern NSString *const MIJSONValueMovieEditorCropRampInstruction;
+
+/// Transform instruction. "transforminstruction"
+extern NSString *const MIJSONValueMovieEditorTransformInstruction;
+
+/// Opacity instruction. "opacityinstruction"
+extern NSString *const MIJSONValueMovieEditorOpacityInstruction;
+
+/// Crop instruction. "cropinstruction"
+extern NSString *const MIJSONValueMovieEditorCropInstruction;
+
+/// The start value for a ramp layer instruction. "startrampvalue"
+extern NSString *const MIJSONPropertyMovieEditorStartRampValue;
+
+/// The end value for a ramp layer instruction. "endrampvalue"
+extern NSString *const MIJSONPropertyMovieEditorEndRampValue;
+
+/// The instruction value for non ramp layer instructions. "instructionvalue"
+extern NSString *const MIJSONPropertyMovieEditorInstructionValue;
 
 /// Will frames need to be re-ordered to be in order. "requiresframereordering"
 extern NSString *const MIJSONPropertyMovieTrackRequiresFrameReordering;
@@ -1671,8 +1749,9 @@ extern NSString *const MIJSONPropertyMovieTargetTimeRange;
  value is a string then the only valid value is "movienextsample" otherwise the
  preferred contents of the dictionary is a collection of
  properties that describe a CMTime. Alternately the dictionary can contain a
- single property MIJSONPropertyMovieTime="time" which is a float or string value
- representing the time in seconds from the beginning of the movie.
+ single property MIJSONPropertyMovieTimeInSeconds="timeinseconds" which is a
+ float or string value representing the time in seconds from the beginning of
+ the movie.
  
  A CMTime dictionary object which describes the frame time has the following
  properties:
@@ -1706,15 +1785,26 @@ extern NSString *const MIJSONPropertyMovieLastAccessedFrameDurationKey;
 extern NSString *const MIJSONValueMovieNextSample;
 
 /**
- @brief The movie time, value is an equation or a float value in seconds "time"
+ @brief The movie time, whose value is a dictionary. "time"
+ @discussion The dictionary can contain a single entry with the property key
+ MIJSONPropertyMovieTimeInSeconds. "timeinseconds" but the dictionary can
+ be the dictionary representatin of a CMTime struct. The CMTime struct
+ dictionary representations shouldn't have rounding errors, however
+ at times these values can be difficult to manipulate in which case the use of
+ a single float value representing movie time in seconds can be used.
+*/
+extern NSString *const MIJSONPropertyMovieTime;
+
+/**
+ @brief The movie time in seconds, value is a string or a number in seconds "time"
  @discussion When representing times in movies it is better to use CMTime
  dictionary representations as these shouldn't have rounding errors, however
  at times these values can be difficult to manipulate in which case the use of
- a single float value representing movie time in seconds can be used.
+ a single float value representing movie time in seconds can be easier.
  If the value is an equation then the evaluation of the equation will produce
  a float value which is time in seconds.
 */
-extern NSString *const MIJSONPropertyMovieTime;
+extern NSString *const MIJSONPropertyMovieTimeInSeconds;
 
 /**
  @brief The instructions for processing movie frames. "processinstructions"
@@ -1763,7 +1853,7 @@ extern NSString *const MIJSONValueMovieMediaTypeVideo;
 extern NSString *const MIJSONValueMovieMediaTypeAudio;
 
 /**
- @brief Presets used as video settings input AVAssetWriterInput. "preset"
+ @brief Preset used for video settings input AVAssetWriterInput. "preset"
  @discussion When writing movie files there are multiple settings that can
  be set for the AVAssetWriterInput to configure how the video should be
  written. Each preset defines properties that go together and can be used as
@@ -1804,9 +1894,6 @@ extern NSString *const MIJSONPropertyMovieVideoWriterCanWriteFrames;
 /// Readonly prop. Status of video writer. See AVAssetWriter.h. "videowriterstatus"
 extern NSString *const MIJSONPropertyMovieVideoWriterStatus;
 
-/// Video writer preset to be used for uncompressed output. "uncompressedpreset"
-// extern NSString *const MIJSONValueMovieVideoWriterPresetUncompressed;
-
 /// Video writer preset uses h264 codec for HD videos. "h264preset_hd"
 extern NSString *const MIJSONValueMovieVideoWriterPresetH264_HD;
 
@@ -1816,11 +1903,22 @@ extern NSString *const MIJSONValueMovieVideoWriterPresetH264_SD;
 /// Video writer preset which uses jpeg for compressing data. "jpegpreset"
 extern NSString *const MIJSONValueMovieVideoWriterPresetJPEG;
 
-/// Video writer preset which uses the pro res 4444 codec. "prores444preset"
+/// Video writer preset which uses the pro res 4444 codec. "prores4444preset"
 extern NSString *const MIJSONValueMovieVideoWriterPresetProRes4444;
 
 /// Video writer preset which uses the pro res 422 codec. "prores422preset"
 extern NSString *const MIJSONValueMovieVideoWriterPresetProRes422;
+
+/**
+ @brief Movie editor compatible property presets
+ @discussion After you've added your tracks and content to a movie editor object
+ you can request a list of the compatible export presets that the movie
+ composition can be exported as.
+*/
+extern NSString *const MIJSONPropertyMovieExportCompatiblePresets;
+
+/// The movie editor export preset used to configure the movie export.
+extern NSString *const MIJSONPropertyMovieExportPreset;
 
 #pragma mark Other bits and bobs.
 
@@ -1838,10 +1936,8 @@ extern NSString *const MIJSONPropertyPresets;
  @discussion Applies to the bitmapcontext class. Returns a space delimited list
  of blend modes that lists the full range of blend modes. See apple
  documentation for a description of the full range of core graphics blend modes.
- In the repository "using-movingimages" I've combined the images 
- horizontaltestpattern.png and verticaltestpattern.png using all the blend modes
- the output is in bitmapcontext/images. The source images are in
- miscellaneous/images.
+ I've combined the images horizontaltestpattern.png and verticaltestpattern.png
+ in test011 using various blend modes.
 */
 extern NSString *const MIJSONPropertyBlendModes;
 
@@ -1867,9 +1963,12 @@ extern NSString *const MIJSONPropertyPreset;
  overridden by specifying the colorprofile property and assigning a profile
  name. For a bitmap context created in the rgb color space the default profile
  is kCGColorSpaceSRGB, but this can be overridden with kCGColorSpaceGenericRGB,
- kCGColorSpaceGenericRGBLinear, kCGColorSpaceAdobeRGB1998 profile.
+ kCGColorSpaceGenericRGBLinear, kCGColorSpaceAdobeRGB1998, devicergb profile.
 */
 extern NSString *const MIJSONPropertyColorProfile;
+
+/// The device rgb color profile. "devicergb"
+extern NSString *const MIJSONValueDeviceRGB;
 
 /**
  @brief The bits per component readonly property of a bitmap. "bitspercomponent"
@@ -2026,3 +2125,5 @@ extern NSString *const MIJSONPropertySoftwareRender;
 
 /// Is core image filter chain rendering in srgb space. "use_srgbcolorspace"
 extern NSString *const MIJSONPropertyUseSRGBColorSpace;
+
+#pragma clang assume_nonnull end

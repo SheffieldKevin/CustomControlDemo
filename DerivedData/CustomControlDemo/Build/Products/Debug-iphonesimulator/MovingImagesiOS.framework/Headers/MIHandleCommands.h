@@ -1,6 +1,5 @@
 //  MIHandleCommands.h
-//  Created by Kevin Meaney on 23/07/2013.
-//  Copyright (c) 2014 Kevin Meaney. All rights reserved.
+//  Copyright (c) 2015 Zukini Ltd.
 
 @import Foundation;
 @import CoreGraphics;
@@ -8,17 +7,31 @@
 @class MIContext;
 @class MICGImage;
 
+#pragma clang assume_nonnull begin
+
 /// Prepare Cocoa Lumberjack for logging messages.
 void MIInitializeCocoaLumberjack();
 
 /**
- @brief Command completion handler block definition. success is async op succeed.
- @discussion For the handle...Command asynchronous methods a completion handler
- can be called. The completion handler takes a single BOOL parameter and this
- parameter reflects whether the asynchronous command completed successfully or
- not.
+ @brief Completion handler block definition for MIMovingImagesHandleCommands()
+ @discussion A block definition to be used as completion handler for the
+ MIMovingImagesHandleCommands function. This is an optional parameter for the
+ MIMovingImagesHandleCommands function. If the commands are to be run
+ asynchronously and completion handler parameter is passed to the function then
+ the completion handler block will be called when the last command is processed.
+ @param replyDict This is the reply dictionary, the same as what is returned
+ by MIMovingImagesHandleCommands if the commands are synchronously.
 */
 typedef void (^MICommandCompletionHandler)(NSDictionary *replyDict);
+
+/**
+ @brief This block is called before each command is processed.
+ @discussion The progress handler callback is an optional parameter for the 
+ MIMovingImagesHandleCommand and if passed in is called before each command
+ is processed. This callback can be used to update the variables dictionary
+ before each command is processed or to update a progress handler.
+*/
+typedef void (^MIProgressHandler)(NSInteger commandIndex);
 
 /**
  @brief Create a MIContext within which base objects can be created.
@@ -36,7 +49,7 @@ MIContext *MICreateContext();
  @result A reply dictionary with properties specifying whether the command
  completed successfully or not, and a reply value.
 */
-NSDictionary *MIMovingImagesHandleCommand(MIContext *context,
+NSDictionary *MIMovingImagesHandleCommand(MIContext * __nullable context,
                                           NSDictionary *command);
 
 /**
@@ -44,22 +57,26 @@ NSDictionary *MIMovingImagesHandleCommand(MIContext *context,
  @discussion If commands are to be run asynchronously then you can also pass
  in a completion handler which will be run on the main queue when the commands
  complete. If the commands are to be run synchronously or don't need to run a
- completion handler then just pass in nil.
+ completion handler then just pass in nil. The progress handler is called 
+ synchronously and on the same queue that the commands are being processed on.
+ The completion handler is called asynchronously on the main queue.
  @param commands A dictionary with option properties & command list property.
  @param context The context within which the commands should be handled. If nil
  then commands will be performed within the default context.
+ @param progressHandler A progress handler, for progress & variables. Can be nil.
  @param handler The completion handler, to be run on main queue. can be nil.
  @result A dictionary. If the commands are run synchronously then dictionary
  returns whether the commands successfully completed, and contains optional
  results. If the commands are run asychronously then the dictionary will return
  whether setting up the commands to run asynchronously or not was successful.
 */
-NSDictionary *MIMovingImagesHandleCommands(MIContext *context,
-                                           NSDictionary *commands,
-                                           MICommandCompletionHandler handler);
+NSDictionary *MIMovingImagesHandleCommands(MIContext * __nullable context,
+                                NSDictionary *commands,
+                                __nullable MIProgressHandler progressHandler,
+                                __nullable MICommandCompletionHandler handler);
 
 /**
- @brief Generate a MICGImage using object represented by objectDict and options.
+ @brief Create a CGImage using object represented by objectDict and options.
  @discussion The contents of the option dictionary should change depending on
  the object described in objectDict. A bitmap context takes no options whereas
  a movie importer object requires the frame time to be specified, while an image
@@ -71,10 +88,9 @@ NSDictionary *MIMovingImagesHandleCommands(MIContext *context,
  @param cantBeThisObject    This object is not available to get the image from
  @result a MICGImage wrapping a CGImageRef and returns nil on failure.
 */
-MICGImage *MICGImageFromObjectAndOptions(MIContext *context,
-                                         NSDictionary *objectDict,
-                                         NSDictionary *imageOptions,
-                                         id cantBeThisObject);
+CGImageRef __nullable MICreateImageFromObjectAndOptions(MIContext * __nullable context,
+        NSDictionary *objectDict, NSDictionary * __nullable imageOptions,
+        id __nullable cantBeThisObject) CF_RETURNS_RETAINED;
 
 /**
  @brief Generate a MICGImage based on the properties of the image dictionary.
@@ -83,7 +99,29 @@ MICGImage *MICGImageFromObjectAndOptions(MIContext *context,
  is not specified then MICGImageFromDictionary will determine the object to
  create the image and get the image options from the image dictionary and then
  call MICGImageFromObjectAndOptions to create the image.
+
+MICGImage * __nullable MICGImageFromDictionary(MIContext * __nullable context,
+        NSDictionary *imageDict, id __nullable cantBeThisObject);
 */
-MICGImage *MICGImageFromDictionary(MIContext *context,
-                                   NSDictionary *imageDict,
-                                   id cantBeThisObject);
+
+/**
+ @brief Get a Integer value from a string. Uses DDMathParser to get the number
+ @param string [IN] The string to parse to get the value from.
+ @param value [OUT] A pointer to a NSInteger that will be assigned the value.
+ @param variablesDict [IN] A dictionary of variables and their values.
+ @return YES on success. NO if fails to obtain NSInteger
+ */
+BOOL MIUtilityGetIntegerFromString(NSString *string, NSInteger *value,
+                                   NSDictionary * __nullable variablesDict);
+
+/**
+ @brief Get a CGFloat value from a string. Uses DDMathParser to get the number
+ @param string [IN] The string to parse to get the value from.
+ @param value [OUT] A pointer to a CGFloat that will be assigned the value.
+ @param variablesDict [IN] A dictionary of variables and their values.
+ @return YES on success. NO if fails to obtain CGFloat
+ */
+BOOL MIUtilityGetFloatFromString(NSString *string, CGFloat *value,
+                                 NSDictionary * __nullable variablesDict);
+
+#pragma clang assume_nonnull end

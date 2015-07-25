@@ -1,9 +1,10 @@
 //  MIConstants.h
 //
-//  Created by Kevin Meaney on 31/07/2013.
-//  Copyright (c) 2013-2014 Kevin Meaney. All rights reserved.
+//  Copyright (c) 2015 Zukini Ltd.
 
 @import Foundation;
+
+#pragma clang assume_nonnull begin
 
 /// The image importer base object type. "imageimporter"
 extern NSString *const MIImageImporterKey;
@@ -26,14 +27,11 @@ extern NSString *const MIMovieImporterKey;
 /// The movie frame iterator base object type. "movieframeiterator"
 // extern NSString *const MIMovieFrameIteratorKey;
 
-/// The movie editor base object type. "movieeditor" (unimplemented).
+/// The movie editor base object type. "movieeditor".
 extern NSString *const MIMovieEditorKey;
 
 /// The movie video frames writer base object type. "videoframeswriter"
 extern NSString *const MIMovieVideoFramesWriterKey;
-
-/// UIGraphicsContext wrapper base object. "uigraphicscontext" (unimplemented)
-extern NSString *const MIUIGraphicContext;
 
 /// NSGraphicContext wrapper base object. "nsgraphicscontext"
 extern NSString *const MINSGraphicContextKey;
@@ -110,3 +108,4 @@ extern NSString *const MIErrorMessageKey;
 
 NSArray *MICGBitmapGetPresetList();
 
+#pragma clang assume_nonnull end

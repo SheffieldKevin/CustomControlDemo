@@ -1,14 +1,12 @@
-//
 //  MIContext.h
-//  MovieMaker
+//  Zukini.
 //
-//  Created by Kevin Meaney on 19/10/2014.
-//  Copyright (c) 2014 Apple Inc. All rights reserved.
-//
+//  Copyright (c) 2015 Zukini Ltd.
 
-// #import <Foundation/Foundation.h>
 @import Foundation;
 @import CoreGraphics;
+
+#pragma clang assume_nonnull begin
 
 typedef NSInteger MIBaseReference;
 extern const MIBaseReference kMIInvalidElementReference;
@@ -41,13 +39,17 @@ extern const MIBaseReference kMIInvalidElementReference;
 +(MIContext *)defaultContext;
 
 /// The designated initializer
--(instancetype)init;
+-(instancetype)init NS_DESIGNATED_INITIALIZER;
 
 /// Append a dictionary with keys for variable names & their associated values.
 -(void)appendVariables:(NSDictionary *)variables;
 
-/// Drop the last variables dictionary added.
+/// Drop the variables dictionary.
 -(void)dropVariablesDictionary:(NSDictionary *)dictToDrop;
+
+/// Drop one variables dictionary and append a new variables dictionary.
+-(void)dropVariablesDictionary:(nullable NSDictionary *)dropDict
+           appendNewDictionary:(nullable NSDictionary *)newDict;
 
 /// Add image with identifier to the the image collection.
 -(BOOL)assignCGImage:(CGImageRef)theImage identifier:(NSString *)identifier;
@@ -60,3 +62,5 @@ extern const MIBaseReference kMIInvalidElementReference;
                                 (NSString *)identifier CF_RETURNS_NOT_RETAINED;
 
 @end
+
+#pragma clang assume_nonnull end

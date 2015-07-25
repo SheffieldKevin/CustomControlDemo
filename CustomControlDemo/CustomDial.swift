@@ -84,14 +84,11 @@ class CustomDial: UIControl {
             return Optional.None
         }
 
-        // The order that the parameters that are being passed into atan2 are
-        // reversed. Plus I'm negating the y value. I want the angle
+        // The order of the parameters passed into atan2 are
+        // reversed. I'm also negating the y value. I want the angle
         // equal to zero to point upwards and the rotation direction to be
         // clockwise. These two changes produces the desired result.
-        //
-        // This is made even more complicated because atan2 takes y as the
-        // first value, and x as the second. For more info about atan2 type
-        // man atan2 in the terminal.
+        // For more info about atan2 type man atan2 in the terminal.
         let angle = CGFloat(atan2(location.x - (frame.width / 2),
                                   (frame.height / 2) - location.y))
         

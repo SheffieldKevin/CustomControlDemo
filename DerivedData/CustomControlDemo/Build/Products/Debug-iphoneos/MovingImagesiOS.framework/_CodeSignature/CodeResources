@@ -4,18 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>.DS_Store</key>
-		<data>
-		QBFk7hpSbMwu173zV6446Qm/qic=
-		</data>
-		<key>Headers/.DS_Store</key>
-		<data>
-		3y++sUAKzaCQmjLBz2v0kvESHgc=
-		</data>
-		<key>Headers/MICGImage.h</key>
-		<data>
-		UD37tIqZAUrccTMuTyt7atyMNHQ=
-		</data>
 		<key>Headers/MIConstants.h</key>
 		<data>
 		timCe8ZSqAUjzDlXKSQg3A5HMe8=
@@ -46,7 +34,7 @@
 		</data>
 		<key>Headers/MovingImagesiOS.h</key>
 		<data>
-		ge9hceGQfj8dvqIAdnzDuadgMgw=
+		7ABd3J095QJYNyVm6Lf228P4wHU=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -59,10 +47,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/MICGImage.h</key>
-		<data>
-		UD37tIqZAUrccTMuTyt7atyMNHQ=
-		</data>
 		<key>Headers/MIConstants.h</key>
 		<data>
 		timCe8ZSqAUjzDlXKSQg3A5HMe8=
@@ -93,7 +77,7 @@
 		</data>
 		<key>Headers/MovingImagesiOS.h</key>
 		<data>
-		ge9hceGQfj8dvqIAdnzDuadgMgw=
+		7ABd3J095QJYNyVm6Lf228P4wHU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>

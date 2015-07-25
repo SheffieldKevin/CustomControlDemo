@@ -31,7 +31,7 @@ class CustomControlLayer: CALayer {
                 double: Double(theDial.currentValue))
             let controlText = NSString(format: "%1.3f", currentVal.floatValue)
             let variables = [
-                "controlValue" : currentVal,
+                "controlvalue" : currentVal,
                 "controltext" : controlText
             ]
             self.simpleRenderer.variables = variables

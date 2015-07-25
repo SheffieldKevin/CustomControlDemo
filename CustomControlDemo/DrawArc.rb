@@ -35,7 +35,7 @@ def make_arcpath_equation(inBox: { size: { width: 120, height: 120 },
   thePath.add_arc(centerPoint: centerPoint,
                        radius: radius,
                    startAngle: startAngle,
-                     endAngle: "#{startAngle} - #{scaleFactor} * $controlValue",
+                     endAngle: "#{startAngle} - #{scaleFactor} * $controlvalue",
                   isClockwise: true)
   return thePath
 end

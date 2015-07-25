@@ -17,20 +17,8 @@
 		6E3332011A0BF1D0002659B2 /* CustomControlDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3332001A0BF1D0002659B2 /* CustomControlDemoTests.swift */; };
 		6E33320F1A0BFBF2002659B2 /* CustomControlLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E33320E1A0BFBF2002659B2 /* CustomControlLayer.swift */; };
 		6E3332111A0BFCF6002659B2 /* CustomDial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3332101A0BFCF6002659B2 /* CustomDial.swift */; };
-		6EA321171A9361E000B3E66B /* DrawingShapesWithShadowiOSSim.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA321111A9361E000B3E66B /* DrawingShapesWithShadowiOSSim.png */; };
-		6EA321181A9361E000B3E66B /* DrawTextWithInnerShadowiOSSim.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA321121A9361E000B3E66B /* DrawTextWithInnerShadowiOSSim.png */; };
-		6EA321191A9361E000B3E66B /* FillPathWithInnerShadowiOSSim.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA321131A9361E000B3E66B /* FillPathWithInnerShadowiOSSim.png */; };
-		6EA3211A1A9361E000B3E66B /* LinearGradientFillWithShadowiOSSim.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA321141A9361E000B3E66B /* LinearGradientFillWithShadowiOSSim.png */; };
-		6EA3211B1A9361E000B3E66B /* RadialGradientFillWithShadowiOSSim.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA321151A9361E000B3E66B /* RadialGradientFillWithShadowiOSSim.png */; };
-		6EA3211C1A9361E000B3E66B /* StrokeRectangleWithShadowOverOvaliOSSim.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA321161A9361E000B3E66B /* StrokeRectangleWithShadowOverOvaliOSSim.png */; };
 		6EC0A6AA1A0FE776009E3824 /* MovingImagesiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC0A6A91A0FE776009E3824 /* MovingImagesiOS.framework */; };
 		6EC0A6AE1A126B46009E3824 /* drawarc.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EC0A6AD1A126B46009E3824 /* drawarc.json */; };
-		6EFBBA741A842FA800372129 /* DrawingShapesWithShadowiOS.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EFBBA6E1A842FA800372129 /* DrawingShapesWithShadowiOS.png */; };
-		6EFBBA751A842FA800372129 /* DrawTextWithInnerShadowiOS.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EFBBA6F1A842FA800372129 /* DrawTextWithInnerShadowiOS.png */; };
-		6EFBBA761A842FA800372129 /* FillPathWithInnerShadowiOS.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EFBBA701A842FA800372129 /* FillPathWithInnerShadowiOS.png */; };
-		6EFBBA771A842FA800372129 /* LinearGradientFillWithShadowiOS.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EFBBA711A842FA800372129 /* LinearGradientFillWithShadowiOS.png */; };
-		6EFBBA781A842FA800372129 /* RadialGradientFillWithShadowiOS.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EFBBA721A842FA800372129 /* RadialGradientFillWithShadowiOS.png */; };
-		6EFBBA791A842FA800372129 /* StrokeRectangleWithShadowOverOvaliOS.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EFBBA731A842FA800372129 /* StrokeRectangleWithShadowOverOvaliOS.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,22 +57,10 @@
 		6E3332001A0BF1D0002659B2 /* CustomControlDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomControlDemoTests.swift; sourceTree = "<group>"; };
 		6E33320E1A0BFBF2002659B2 /* CustomControlLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomControlLayer.swift; sourceTree = "<group>"; };
 		6E3332101A0BFCF6002659B2 /* CustomDial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDial.swift; sourceTree = "<group>"; };
-		6EA321111A9361E000B3E66B /* DrawingShapesWithShadowiOSSim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrawingShapesWithShadowiOSSim.png; sourceTree = "<group>"; };
-		6EA321121A9361E000B3E66B /* DrawTextWithInnerShadowiOSSim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrawTextWithInnerShadowiOSSim.png; sourceTree = "<group>"; };
-		6EA321131A9361E000B3E66B /* FillPathWithInnerShadowiOSSim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FillPathWithInnerShadowiOSSim.png; sourceTree = "<group>"; };
-		6EA321141A9361E000B3E66B /* LinearGradientFillWithShadowiOSSim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LinearGradientFillWithShadowiOSSim.png; sourceTree = "<group>"; };
-		6EA321151A9361E000B3E66B /* RadialGradientFillWithShadowiOSSim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RadialGradientFillWithShadowiOSSim.png; sourceTree = "<group>"; };
-		6EA321161A9361E000B3E66B /* StrokeRectangleWithShadowOverOvaliOSSim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StrokeRectangleWithShadowOverOvaliOSSim.png; sourceTree = "<group>"; };
 		6EC0A6A91A0FE776009E3824 /* MovingImagesiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MovingImagesiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EC0A6AB1A0FE965009E3824 /* CustomControlDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CustomControlDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		6EC0A6AD1A126B46009E3824 /* drawarc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = drawarc.json; sourceTree = "<group>"; };
 		6EE3E4D41A39D59600D1EF27 /* CustomControlDemoTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CustomControlDemoTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		6EFBBA6E1A842FA800372129 /* DrawingShapesWithShadowiOS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrawingShapesWithShadowiOS.png; sourceTree = "<group>"; };
-		6EFBBA6F1A842FA800372129 /* DrawTextWithInnerShadowiOS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrawTextWithInnerShadowiOS.png; sourceTree = "<group>"; };
-		6EFBBA701A842FA800372129 /* FillPathWithInnerShadowiOS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FillPathWithInnerShadowiOS.png; sourceTree = "<group>"; };
-		6EFBBA711A842FA800372129 /* LinearGradientFillWithShadowiOS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LinearGradientFillWithShadowiOS.png; sourceTree = "<group>"; };
-		6EFBBA721A842FA800372129 /* RadialGradientFillWithShadowiOS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RadialGradientFillWithShadowiOS.png; sourceTree = "<group>"; };
-		6EFBBA731A842FA800372129 /* StrokeRectangleWithShadowOverOvaliOS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StrokeRectangleWithShadowOverOvaliOS.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,18 +140,6 @@
 		6E3331FE1A0BF1D0002659B2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6EA321111A9361E000B3E66B /* DrawingShapesWithShadowiOSSim.png */,
-				6EA321121A9361E000B3E66B /* DrawTextWithInnerShadowiOSSim.png */,
-				6EA321131A9361E000B3E66B /* FillPathWithInnerShadowiOSSim.png */,
-				6EA321141A9361E000B3E66B /* LinearGradientFillWithShadowiOSSim.png */,
-				6EA321151A9361E000B3E66B /* RadialGradientFillWithShadowiOSSim.png */,
-				6EA321161A9361E000B3E66B /* StrokeRectangleWithShadowOverOvaliOSSim.png */,
-				6EFBBA6E1A842FA800372129 /* DrawingShapesWithShadowiOS.png */,
-				6EFBBA6F1A842FA800372129 /* DrawTextWithInnerShadowiOS.png */,
-				6EFBBA701A842FA800372129 /* FillPathWithInnerShadowiOS.png */,
-				6EFBBA711A842FA800372129 /* LinearGradientFillWithShadowiOS.png */,
-				6EFBBA721A842FA800372129 /* RadialGradientFillWithShadowiOS.png */,
-				6EFBBA731A842FA800372129 /* StrokeRectangleWithShadowOverOvaliOS.png */,
 				6E3331FF1A0BF1D0002659B2 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -274,18 +238,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EA321171A9361E000B3E66B /* DrawingShapesWithShadowiOSSim.png in Resources */,
-				6EFBBA741A842FA800372129 /* DrawingShapesWithShadowiOS.png in Resources */,
-				6EA321181A9361E000B3E66B /* DrawTextWithInnerShadowiOSSim.png in Resources */,
-				6EFBBA751A842FA800372129 /* DrawTextWithInnerShadowiOS.png in Resources */,
-				6EFBBA761A842FA800372129 /* FillPathWithInnerShadowiOS.png in Resources */,
-				6EA321191A9361E000B3E66B /* FillPathWithInnerShadowiOSSim.png in Resources */,
-				6EFBBA771A842FA800372129 /* LinearGradientFillWithShadowiOS.png in Resources */,
-				6EA3211A1A9361E000B3E66B /* LinearGradientFillWithShadowiOSSim.png in Resources */,
-				6EFBBA781A842FA800372129 /* RadialGradientFillWithShadowiOS.png in Resources */,
-				6EA3211B1A9361E000B3E66B /* RadialGradientFillWithShadowiOSSim.png in Resources */,
-				6EFBBA791A842FA800372129 /* StrokeRectangleWithShadowOverOvaliOS.png in Resources */,
-				6EA3211C1A9361E000B3E66B /* StrokeRectangleWithShadowOverOvaliOSSim.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
